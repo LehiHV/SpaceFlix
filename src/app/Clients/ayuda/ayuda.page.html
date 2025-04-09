@@ -1,0 +1,86 @@
+<ion-header [translucent]="true">
+    <ion-toolbar style="--background: black">
+        <ion-buttons slot="start">
+          <ion-back-button
+            defaultHref="/"
+            style="--color: #E5E5E5"
+          ></ion-back-button>
+        </ion-buttons>
+        <ion-title slot="end" class="sub-text">Ayuda</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+    <!-- Área de texto expandible -->
+    <ion-card class="card" (click)="toggleText()">
+        <ion-card-header>
+            <ion-card-title>¿Cómo puedo estar seguro al realizar una compra?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido">En nuestra empresa, la seriedad y el compromiso con nuestros clientes es primordial. Contamos con un historial de satisfacción comprobable a través de referencias verificables y un amplio abanico de recomendaciones positivas de nuestros usuarios. Tu confianza es nuestra prioridad.</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-card class="card" (click)="toggleText1()">
+        <ion-card-header>
+            <ion-card-title>¿Qué garantías ofrecen con mi compra?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido1">Ofrecemos una garantía de reposición de producto para todas tus compras, en el caso improbable de que experimentes alguna falla. Nuestro compromiso es asegurar tu total satisfacción con nuestros productos y servicios.</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-card class="card" (click)="toggleText2()">
+        <ion-card-header>
+            <ion-card-title>¿Durante cuánto tiempo tendré acceso al servicio adquirido?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido2">El acceso a los servicios que proporcionamos es por un período de 30 días, iniciando desde el momento en que se entregan los datos de acceso a tu cuenta. Nos aseguramos de que disfrutes de un mes completo de nuestro servicio sin interrupciones.</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-card class="card" (click)="toggleText3()">
+        <ion-card-header>
+            <ion-card-title>¿Puedo adquirir un servicio para mi cuenta personal?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido3">Actualmente, los servicios que ofrecemos se gestionan a través de cuentas propiedad de nuestra empresa. Una vez realizada tu compra, te proporcionaremos los datos necesarios para acceder al servicio solicitado, garantizando una experiencia de usuario segura y eficiente.</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-card class="card" (click)="toggleText4()">
+        <ion-card-header>
+            <ion-card-title>¿Las cuentas son compartidas con otros usuarios?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido4">Efectivamente, algunas de nuestras cuentas son compartidas con otros usuarios. Sin embargo, gestionamos meticulosamente cada cuenta para asegurar una experiencia sin contratiempos y proteger tu privacidad.</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-card class="card" (click)="toggleText5()">
+        <ion-card-header>
+            <ion-card-title>¿Es posible renovar mi suscripción cada mes?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido5">Sí, tienes la opción de renovar tu suscripción mensualmente, asegurando tu pago correspondiente al servicio adquirido al menos un día antes de la fecha de corte. Nuestro equipo está a tu disposición para facilitar el proceso de renovación.</p>
+        </ion-card-content>
+
+    </ion-card>
+    <ion-card class="card" (click)="toggleText6()">
+        <ion-card-header>
+            <ion-card-title>¿Qué debo hacer si encuentro problemas con mi servicio?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido6">En caso de enfrentar cualquier inconveniente con el servicio, es crucial que lo reportes de inmediato en nuestra sección de reportes. Nuestro equipo técnico se encargará de resolver cualquier problema a la brevedad, garantizando tu satisfacción con el servicio.</p>
+        </ion-card-content>
+    </ion-card>
+    <ion-card class="card" (click)="toggleText7()">
+        <ion-card-header>
+            <ion-card-title>¿Como realizo compras dentro de la app?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p *ngIf="textoExpandido7">Para realizar compras necesitas saldo, para conseguir este, por favor contáctanos a través de WhatsApp dentro de la pantalla principal en el botón de WhatsApp para solicitar el servicio de recarga.</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+<app-tabs></app-tabs>

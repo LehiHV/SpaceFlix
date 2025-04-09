@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+    <ion-img src="assets/space_flix_logo.svg" alt="Logo Spaceent"></ion-img>
+    <ion-header collapse="condense"></ion-header>
+    <ion-card class="card-login">
+        <ion-img class="card-img" src="assets/singup-login_space_flix.svg" alt="Logo Spaceent"></ion-img>
+        <ion-card-header>
+            <ion-card-title>Crea tu cuenta SpaceFlix</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-item>
+                <ion-input [(ngModel)]="usuario" maxlength="256" label="Usuario:"></ion-input>
+            </ion-item>
+            <br>
+            <ion-item>
+                <ion-input [(ngModel)]="correo" maxlength="256" label="Correo:" type="mail"></ion-input>
+            </ion-item>
+            <br>
+            <ion-item>
+                <ion-input [(ngModel)]="contrasena" maxlength="8" label="Contraseña:" type="password"></ion-input>
+            </ion-item>
+            <br>
+            <ion-item>
+                <ion-input [(ngModel)]="nombre_cliente" maxlength="256" label="Nombre:" type="text"></ion-input>
+            </ion-item>
+            <br>
+            <ion-item>
+                <ion-input maxlength="256" label="Código de invitación:" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">
+                    <ion-select [(ngModel)]="seleccion" placeholder="Seleccionar código país" (click)="sharedDataService.cargarLadas()">
+                        <ion-select-option *ngFor="let pais of sharedDataService.codigoPais" [value]="pais.codigoLada">
+                            {{ pais.nombre }} : {{ pais.codigoLada }}
+                        </ion-select-option>
+                    </ion-select>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-input [(ngModel)]="telefono" maxlength="10" label="Número:" placeholder="Número de teléfono"></ion-input>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+    <ion-button class="centered-button" (click)="RegisterAccess()">Registrarse</ion-button>
+
+
+
+</ion-content>

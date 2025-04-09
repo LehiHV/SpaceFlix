@@ -1,0 +1,138 @@
+.fixed-tab-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Asegúrate de que está encima de otros elementos si es necesario */
+}
+
+ion-searchbar {
+  --color: white;
+  font-size: 1.25em;
+  font-weight: 800;
+}
+
+.toolbar-negro {
+  --background: black;
+}
+
+ion-menu-button {
+  color: #cccccc;
+}
+
+.logout-icon {
+  font-size: 3.75em;
+  /* Ajusta este valor según tus necesidades */
+  color: #000;
+  /* Cambia el color si lo necesitas */
+}
+
+.div-footer {
+  width: 100%;
+  height: 20%;
+}
+
+/* Eliminar el fondo en ion-content */
+.content-background {
+  --background: #000000;
+}
+
+/* Estilos para el contenido de la cabecera */
+.contenedor-cabecera {
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Estilos para el segmento */
+.menu-segment {
+  --background: transparent;
+  --indicator-color: #76add7;
+  --color-checked: #76add7;
+  --color: #76add7;
+  --padding-bottom: 0.75em;
+  --border-radius: 10.625em;
+  margin: 1em;
+  position: relative;
+  /* Asegura que el pseudo-elemento esté posicionado correctamente */
+  font-size: 1.1em;
+}
+
+.color-blue {
+  color: #76add7;
+  font-size: 1.1em;
+}
+
+/* Estilo adicional para ajustar el ancho del indicador */
+#container strong {
+  font-size: 1.25em;
+  line-height: 1.625em;
+}
+
+#container p {
+  font-size: 1em;
+  line-height: 1.375em;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+#rounded-box {
+  background-color: #8f22d7;
+  border-radius: 1.25em;
+  padding: 0.625em;
+  color: #fff;
+  /* Sin espacios adicionales */
+}
+
+/* Estilo para el texto del menú en el tono #BF6196 */
+.Negritas {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #cccccc;
+}
+
+.Blanquitas {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #cccccc;
+}
+
+.señalar-menu {
+  color: #bf6196;
+  font-weight: bold;
+}
+
+swiper-container {
+  width: 95%;
+  height: auto;
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px (típicamente dispositivos móviles) */
+@media screen and (max-width: 768px) {
+  swiper-container {
+    width: 95%;
+  }
+}
+
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  swiper-container {
+    width: 40%;
+  }
+}
+
+swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Clase personalizada para el ion-header */
+.ion-header-custom {
+  --ion-background-color: #422d4b; /* Color de fondo específico */
+}

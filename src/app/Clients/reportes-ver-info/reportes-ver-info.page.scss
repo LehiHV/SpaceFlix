@@ -1,0 +1,85 @@
+.Content-Background {
+  --background: linear-gradient(to bottom, #000000, #000000);
+}
+.Negritas {
+  font-weight: bold;
+  font-size: 1.3em;
+  color: white;
+}
+.sub-text {
+  color: #e5e5e5;
+}
+ion-title {
+  text-align: right;
+}
+.contenedor-form {
+  margin: 2%;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+.h1-reporte {
+  color: #72A0C3;
+  font-weight: 800;
+  font-size: 1.7em;
+}
+.text-fallo {
+  color: white;
+  font-size: 1.2em;
+}
+/* Estilo de la segunda card */
+.card-confirmacion {
+  max-width: 400px; /* Ancho máximo */
+  height: auto; /* Altura automática */
+  background-color: #7D6985; /* Color de fondo */
+  border-radius: 20px;
+  color: black;
+  padding-bottom: 10px;
+  margin: auto; /* Añade margen automático para centrar horizontalmente */
+}
+.tittle-confirmacion {
+  font-size: 1.65em;
+  font-weight: bold;
+}
+.plan-price-confirmacion {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #72A0C3;
+  text-align: center;
+}
+.service-card {
+  font-size: 1.3em;
+  color: #BDBCBC;
+}
+.service-card-reque {
+  font-size: 1.3em;
+  color: #422D4B;
+  font-weight: bold;
+}
+.service-card-respue {
+  font-size: 1.3em;
+  color: #422D4B;
+  font-weight: bold;
+}
+.btn-cerrar {
+  background-color: #4a4a4a; /* Color de fondo gris oscuro */
+  color: white; /* Color de texto blanco */
+  border: none; /* Sin bordes */
+  border-radius: 2.5rem; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  line-height: 40px; /* Altura de línea para controlar la altura del botón */
+  height: 3.563rem; /* Altura del botón */
+  width: 20rem; /* Ancho del botón */
+  text-align: center; /* Alineación del texto */
+  font-weight: bold; /* Fuente en negrita */
+  display: block; /* O display: inline-block; si prefieres */
+  box-shadow: 0px 3px 6px #00000029; /* Sombra del botón */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  margin: auto; /* Auto-márgenes para centrar horizontalmente */
+}
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .h1-reporte, .text-fallo {
+  text-align: center;
+  }
+
+}

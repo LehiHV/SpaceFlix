@@ -1,0 +1,181 @@
+.pagina-completa {
+    background: linear-gradient(to bottom, black, #261c51);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+  .content-background,
+  .barra-estilos,
+  .toolbar-button,
+  .toolbar-title {
+    --background: transparent;
+    color: #fff;
+  }
+  @media (min-width: 1200px) {
+    .pagina-completa {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra todos los elementos horizontalmente */
+      justify-content: center; /* Centra los elementos verticalmente si es necesario */
+      min-height: 100vh; /* Asegura que la página completa tenga al menos la altura de la ventana */
+      width: 100%; /* Asegura que el contenedor tome el ancho completo */
+    }
+  
+    .sub-text {
+      font-size: 2rem !important; /* Aumenta el tamaño del texto para mejor legibilidad */
+      text-align: center; /* Centra el texto */
+    }
+  
+    .content-background {
+      padding: 30px 100px; /* Ajusta el padding para una mejor disposición */
+      width: 100%; /* Asegura que tome el ancho completo */
+      max-width: 100%; /* Limita el ancho máximo */
+    }
+  
+    .contenedor-form {
+      max-width: 50%; /* Limita el ancho del formulario para evitar que sea demasiado ancho */
+      margin: 0 auto !important; /* Centra el formulario horizontalmente */
+      padding: 20px; /* Añade padding para mejorar la estructura visual */
+    }
+  
+    ion-input.event {
+      max-width: 500px; /* Establece un máximo de ancho para los inputs de archivos */
+    }
+  
+    .button-container,
+    .button-container-2 {
+      justify-content: space-evenly; /* Distribuye los botones de manera uniforme */
+      width: 100%; /* Toma el ancho completo para la distribución */
+    }
+  
+    ion-button {
+      min-width: 150px; /* Establece un ancho mínimo para los botones para asegurar legibilidad */
+      font-size: 1.1rem; /* Aumenta el tamaño de la fuente en los botones */
+    }
+  
+    .buttonsucces {
+      --background: var(
+        --ion-color-primary
+      ); /* Usa el color primario para los botones de éxito */
+    }
+  
+    .red {
+      --background: rgb(154, 10, 10); /* Color rojo específico */
+    }
+  
+    .red-2 {
+      --background: rgb(14, 38, 179);
+      width: 40%;
+      margin-left: 30%;
+    }
+  
+    .ion-img {
+      max-width: 300px; /* Limita el ancho de las imágenes para mantener la proporción adecuada */
+      margin: 10px auto; /* Centra las imágenes y añade espacio alrededor */
+    }
+  
+    ion-toolbar {
+      --min-height: 70px; /* Aumenta la altura del toolbar para un mejor aspecto visual */
+      width: 100%; /* Asegura que tome el ancho completo */
+    }
+  
+    ion-title {
+      font-size: 1.5rem; /* Aumenta el tamaño del título para mejor legibilidad */
+      text-align: center; /* Centra el título */
+    }
+  
+    .toolbar-title {
+      justify-content: flex-end; /* Alinea los elementos del toolbar hacia la derecha */
+      width: 100%; /* Asegura que tome el ancho completo */
+    }
+    .buttonsucces {
+      color: #cccccc;
+      background-color: #3880ff;
+    }
+  
+    .custom-input {
+      width: 43%;
+      margin-left: 29%;
+    }
+    .custom-label {
+      margin-left: 33%;
+    }
+  }
+  
+  .subirexceltitle {
+    padding-left: 7em;
+    font-size: 1.7em;
+  }
+  ion-title {
+    text-align: right;
+  }
+  .red {
+    --background: rgb(154, 10, 10);
+    --border-radius: 40px;
+    font-size: 0.94em;
+    color: white;
+  }
+  .red-2 {
+    --background: rgb(14, 38, 179);
+    --border-radius: 40px;
+    font-size: 0.94em;
+    color: white;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+  }
+  .contenedor-cabecera {
+    text-align: center;
+    margin-top: 1%;
+  }
+  .sub-text {
+    color: #cccccc;
+    text-align: center;
+  }
+  .sub-text-toolbar {
+    color: #cccccc;
+  }
+  .contenedor-form {
+    margin: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+  ion-button {
+    font-size: 1.2em;
+    margin-top: 5%;
+    color: #72a0c3;
+  }
+  
+  .native-input.sc-ion-input-md {
+    color: #cccccc;
+  }
+  
+  .buttonsucces {
+    color: #cccccc;
+  }
+  
+  ion-input.event {
+    color: #ffffff;
+    /* Esto establecerá el texto en blanco solo para ion-input con la clase event */
+  }
+  .custom-label {
+    font-size: 1.25em;
+    color: #bdbcbc;
+    font-weight: 800;
+  }
+  
+  .custom-input {
+    font-size: 1.2em;
+    border: 1px solid white;
+    /* Establece el borde blanco */
+    border-radius: 32px;
+    /* Hace que los bordes estén redondeados */
+    color: #bdbcbc;
+  }
+  

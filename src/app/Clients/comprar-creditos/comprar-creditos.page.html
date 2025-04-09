@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        style="--color: #e5e5e5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Recargar saldo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="Content-Background" [fullscreen]="true">
+    <div class="contenedor-form">
+      <h1 class="h1-recarga">Realizar recarga</h1>
+      <p style="color: white; text-align: center">
+        - La recarga mínima de saldo es de $10 <br>
+        - La equivalencia es $1 crédito = $1 MXN* <br>
+        *Aplican comisiones al cobro total
+      </p>
+      <br>
+      <ion-label class="custom-label" position="floating">Cantidad</ion-label>
+        <ion-input
+          type="number"
+          class="custom-input"
+          value="10"
+          min="10"
+          placeholder="$10"
+          [(ngModel)]="productQuantity"
+        />
+        <br>
+      <ion-button class="PagarButton" (click)="sendOrder()">COMPRAR</ion-button>
+      <ion-img
+        src="assets/MP_RGB_HANDSHAKE_pluma-relleno-blanco_hori-izq.svg"
+        alt="Logo Subadmin"
+      ></ion-img>
+      <ol type="1" style="color: white; text-align: center">
+        <li>Presionar el botón comprar.</li>
+        <li>Pagar en la ventana de Mercado Pago.</li>
+        <li>Cerrar la ventana hasta finalizar la compra.</li>
+      </ol>
+      <br>
+      <h1 class="h1-recarga-2">Verificar estados de pago</h1>
+      <ion-label style="color: white;">Seleccionar periodo :</ion-label>
+      <div style="display: flex; gap: 10px;">
+        <ion-input style="color: white;" type="date" [(ngModel)]="fechaInicio"></ion-input>
+        <ion-input style="color: white;" type="date" [(ngModel)]="fechaFin"></ion-input>
+      </div>
+      <ion-button class="BuscarButton" (click)="getRecargas()">Buscar</ion-button>
+      <br>
+      <div *ngIf="recargas && recargas.length > 0">
+        <ion-card class="custom-card" *ngFor="let recarga of recargas">
+          <ion-card-content>
+            <p class="service-card">ID transacción: {{recarga.Id}}</p>
+            <p class="service-card">Cantidad: ${{recarga.Total_Compra}}</p>
+            <p class="service-card">Estado del pago: {{recarga.Fecha_Aprobacion_Compra ? 'Aprobado' : 'Pendiente'}}</p>
+            <p class="service-card">Fecha de emisión: {{recarga.Fecha_Solicitud_Compra}}</p>
+            <p class="service-card">Fecha de pago: {{recarga.Fecha_Aprobacion_Compra || 'Pendiente'}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ion-card class="custom-card" *ngIf="busquedaRealizada && recargas && recargas.length === 0">
+        <ion-card-content>
+          <p class="service-card">No se encontraron pagos en ese periodo de tiempo</p>
+        </ion-card-content>
+      </ion-card> 
+    </div>
+</ion-content>
+<app-tabs></app-tabs>

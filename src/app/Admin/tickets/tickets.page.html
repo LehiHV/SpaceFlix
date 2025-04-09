@@ -1,0 +1,178 @@
+<ion-content style="--background: linear-gradient(to bottom, black, #261c51);">
+  <ion-header>
+    <ion-toolbar class="toolbar">
+
+      <ion-buttons slot="start">
+
+        <ion-back-button
+          defaultHref="/"
+          style="--color: #e5e5e5">
+        </ion-back-button>
+
+      </ion-buttons>
+
+      <ion-title slot="end" class="title">Tickets</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+  <div class="content">
+    <span>Filtro de Tickets</span>
+    <div class="filters-form-container">
+        <ion-searchbar
+          show-clear-button="always"
+          [(ngModel)]="search"
+          class="rounded-searchbar"
+          placeholder="Buscar por usuario o correo">
+        </ion-searchbar>
+
+      <ion-modal
+        [isOpen]="showStartDatePicker"
+        [keepContentsMounted]="true"
+        (ionModalDidDismiss)="showStartDatePicker=false">
+        <ng-template>
+          <ion-datetime
+            id="startDate"
+            presentation="date"
+            (ionChange)="onSelectStartDate($event)"
+            (ionCancel)="showStartDatePicker=false"
+            (ionBlur)="showStartDatePicker=false"
+            [showDefaultButtons]="true"
+            [formatOptions]="{
+              date: {
+                weekday: 'short',
+                month: 'long',
+                day: '2-digit',
+              }
+             }"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+
+      <ion-modal
+        [isOpen]="showEndDatePicker"
+        [keepContentsMounted]="true"
+        (ionModalDidDismiss)="showEndDatePicker=false">
+        <ng-template>
+          <ion-datetime
+            id="endDate"
+            presentation="date"
+            (ionChange)="onSelectEndDate($event)"
+            (ionCancel)="showEndDatePicker=false"
+            [showDefaultButtons]="true"
+            [formatOptions]="{
+              date: {
+                weekday: 'short',
+                month: 'long',
+                day: '2-digit',
+              }
+             }"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+
+        <div style="display: flex; justify-content: space-between">
+          <div>
+              <ion-button color="medium" size="small" (click)="showStartDatePicker=true">
+                <ion-icon
+                  slot="start"
+                  color="light"
+                  size="large"
+                  name="calendar-number-outline"></ion-icon>
+                <div>
+                  {{(this.startDate?? "Fecha inicio")}}
+                </div>
+              </ion-button>
+              <ion-datetime-button style="display: none" datetime="startDate"></ion-datetime-button>
+          </div>
+
+          <div>
+              <ion-button color="medium" size="small" (click)="showEndDatePicker=true">
+                <ion-icon
+                  slot="start"
+                  color="light"
+                  size="large"
+                  name="calendar-number-outline"></ion-icon>
+                <div>
+                  {{(this.endDate?? "Fecha final")}}
+                </div>
+              </ion-button>
+            <ion-datetime-button style="display: none" datetime="endDate"></ion-datetime-button>
+          </div>
+        </div>
+        <ion-button
+          *ngIf="startDate && endDate"
+          color="danger"
+          size="small"
+          style="width: 100%"
+          (click)="cleanDatePickers()">
+          Eliminar fechas
+        </ion-button>
+        <ion-button
+          style="width: 100%"
+          (click)="searchTickets()">
+          Buscar
+        </ion-button>
+    </div>
+  </div>
+
+  <br>
+
+  <div style="min-height: 80%; display: flex; align-content: center; flex-direction: column; align-items: center;">
+
+    <div class="accordion-container">
+      <ion-accordion-group>
+        <ion-accordion *ngFor="let ticket of tickets" class="custom-accordion" toggle-icon-slot="none">
+          <div slot="header" style="cursor: pointer">
+            <ion-item class="content-background-list" >
+              <ion-avatar slot="start">
+                <img src="{{ticket.Foto}}" alt="Foto del servicio" />
+              </ion-avatar>
+              <ion-label class="list-content">
+                <span>{{ticket.Usuario}}</span>
+              </ion-label>
+            </ion-item>
+          </div>
+          <div slot="content">
+            <ion-item-group>
+              <ion-item class="ticket-details" >
+                <span>Producto: {{ticket.Producto}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>Correo: {{ticket.Correo}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>Contraseña: {{ticket.Contrasena}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>Perfiles: {{ticket.Perfiles}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>PIN: {{ticket.PIN}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>Fecha de Compra: {{ticket.Fecha_de_Compra}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>Fecha de Expiración: {{ticket.Fecha_Expiracion}}</span>
+              </ion-item>
+              <ion-item class="ticket-details" >
+                <span>Días Vigentes: {{ticket.Dias_Vigentes}}</span>
+              </ion-item>
+            </ion-item-group>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
+  </div>
+  <div class="pagination" (click)="getPage($event)">
+    <div class="scroll-container">
+      <span
+        *ngFor="let pageNumber of totalPages; let i = index"
+        class="page-number"
+        [attr.page-number]="(i+1)">
+        {{ i + 1 }}
+      </span>
+    </div>
+  </div>
+
+</ion-content>

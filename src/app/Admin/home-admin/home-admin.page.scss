@@ -1,0 +1,99 @@
+.pagina-completa {
+  --background: linear-gradient(to bottom, black, #261c51);
+}
+/* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+.content-background,
+.barra-estilos,
+.toolbar-button,
+.toolbar-title {
+  --background: linear-gradient(to bottom, black, #261c51);
+  color: #fff;
+}
+
+.contenedor-cabecera {
+  text-align: center;
+  margin-top: 1%;
+}
+ion-icon {
+  width: 50px;
+  height: 50px;
+}
+.cabecera-texto {
+  color: white;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.sub-text {
+  color: #e5e5e5;
+}
+.text-fecha {
+  color:#e5e5e5;
+}
+@media (min-width: 1200px) {
+  .card-admin {
+    width: calc(14% - 25px) !important;
+    margin: 50px !important;
+    --background: #7d6985;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+  }
+  .sub-text {
+    font-size: 3.2rem !important;
+  }
+  .text-fecha {
+    font-size: 2rem !important;
+  }
+  .sub-text-Bienvenido {
+    color: #e5e5e5;
+    font-size: 3.15rem !important;
+  }
+  .icon-next {
+    margin-left: 5px;
+  }
+}
+.contendor-card {
+  margin-top: 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-admin {
+  width: calc(50% - 25px);
+  margin: 10px;
+  --background: #7d6985;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-img {
+  width: 60%;
+  margin: 5% auto 0;
+}
+
+.card-img-2 {
+  width: 70%; /* Define el ancho deseado */
+  margin-top: 15%;
+  margin: 6% auto 0; /* Mantiene un margen superior del 5% y centra horizontalmente */
+}
+
+.card-text {
+  font-size: 1.12em;
+  color: #bfc6ff;
+}
+ion-title {
+  left: 100%;
+  font-weight: bold;
+  font-size: 1.7em;
+  text-align: center;
+}
+.title-admin {
+  font-weight: bold;
+  font-size: 1.7em;
+  text-align: center;
+}

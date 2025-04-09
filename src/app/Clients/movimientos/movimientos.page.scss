@@ -1,0 +1,30 @@
+.Content-Background,.toolbar-button {
+  --background: linear-gradient(to bottom, #000000, #000000);
+  color:#E5E5E5 ;
+}
+.sub-text{
+  color: #E5E5E5;
+}
+ion-title {
+  text-align: right;
+}
+.Negritas {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.contenedor-card {
+  --border-color: rgba(255, 255, 255, 0.2); /* Color blanco con transparencia */
+  --border-width: 0.5px; /* Grosor más delgado */
+  --color: white; /* Color de texto blanco para ion-item */
+  --ion-item-background: black; /* Fondo negro para ion-item */
+}
+
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .contenedor-card {
+    margin-left: 33%;
+    margin-right: 33%;
+  }
+
+}

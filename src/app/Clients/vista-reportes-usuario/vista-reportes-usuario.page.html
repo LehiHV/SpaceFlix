@@ -1,0 +1,62 @@
+<ion-header [translucent]="true"> 
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        style="--color: #E5E5E5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+  <div class="contenedor-card" style="background-color: black; padding: 1rem">
+    <ion-searchbar
+      placeholder="Buscar"
+      style="
+        --border-radius: 5rem;
+        --background: #7f668f;
+        --color: white;
+        --placeholder-color: white;
+        --icon-color: white;
+      "
+      [(ngModel)]="filtroCorreo"
+    >
+    </ion-searchbar>
+  </div>
+
+  <div class="contenedor-card">
+    <ion-list>
+      <ion-item
+        *ngFor="let report of sharedDataServices.filterEmail2(sharedDataServices.ReportList, filtroCorreo)"
+        (click)="verInfo(report)"
+        style="
+          --border-color: rgba(
+            255,
+            255,
+            255,
+            0.2
+          ); /* Color blanco con transparencia */
+          --border-width: 0.5px; /* Grosor más delgado */
+          --color: white; /* Color de texto blanco para ion-item */
+          --ion-item-background: black; /* Fondo negro para ion-item */
+        "
+      >
+        <ng-container>
+          <ion-avatar slot="start">
+            <img src="{{report.Foto}}" alt="foto de perfil" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ report.Correo }}</h2>
+          </ion-label>
+          <ion-icon
+            slot="end"
+            [name]="obtenerIcono(report.Status)"
+            [color]="obtenerColor(report.Status)"
+          ></ion-icon>
+        </ng-container>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+    <ion-toolbar style="--background: black">
+        <ion-buttons slot="start">
+          <ion-back-button
+            defaultHref="/"
+            style="--color: #E5E5E5"
+          ></ion-back-button>
+        </ion-buttons>
+        <ion-title slot="end" class="sub-text-toolbar">Usuario</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+    <ion-img src="assets/usuario-icon2.png"></ion-img>
+    <br>
+    <br>
+    <h2 class="sub-text" slot="">{{sharedDataService.userData.Usuario}}</h2>
+    <div class="contenedor-form">
+        <p class="user-info">Información del usuario</p>
+        <ion-label class="custom-label" position="floating">Username</ion-label>
+        <ion-input color="primary" class="custom-input" type="text" [(ngModel)]="sharedDataService.userData.Usuario"></ion-input>
+        <br />
+        <ion-label class="custom-label" position="floating">Email</ion-label>
+        <ion-input color="primary" class="custom-input" type="email" [(ngModel)]="sharedDataService.userData.Correo"></ion-input>
+        <br />
+        <ion-label class="custom-label" position="floating">Número telefonico</ion-label>
+        <ion-input color="primary" class="custom-input" type="number" [(ngModel)]="sharedDataService.userData.Telefono"></ion-input>
+        <br />
+        <ion-label class="custom-label" position="floating">Password</ion-label>
+        <ion-input color="primary" class="custom-input" type="text" min="1" [(ngModel)]="sharedDataService.userData.Contrasena"></ion-input>
+        <br />
+        <ion-button expand="block" shape="round" class="btn-saldo" (click)="mostrarSegundaCard()">Actualizar</ion-button>
+        <br>
+    </div>
+
+    <!-- Contenedor de toda la pantalla -->
+    <div class="contenedor-pantalla" *ngIf="mostrarConfirmacion">
+        <ion-card class="card-confirmacion">
+            <ion-img class="card-img-confirmacion" src="assets/card-signo-warning.svg"></ion-img>
+            <ion-card-header>
+                <ion-card-title class="tittle-confirmacion">Confirmación</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="texto-confirmacion">
+                ¿Estas seguro que deseas modificar los datos?
+            </ion-card-content>
+            <ion-button shape="round" class="morado" (click)="confirmarCambio()">Aceptar</ion-button>
+            <ion-button shape="round" class="cancelar-button" (click)="cancelarCambio()">Cancelar</ion-button>
+        </ion-card>
+    </div>
+
+    <div class="contenedor-pantalla" *ngIf="mostrarExito">
+        <ion-card class="card-confirmacion">
+            <ion-img class="card-img-confirmacion" src="assets/card-signo-ready.svg"></ion-img>
+            <ion-card-header>
+                <ion-card-title class="tittle-confirmacion">Exito</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="texto-confirmacion">
+                Los datos han sido modificados con exito
+            </ion-card-content>
+            <ion-button shape="round" class="morado" (click)="aceptarCambio()">Aceptar</ion-button>
+        </ion-card>
+    </div>
+</ion-content>

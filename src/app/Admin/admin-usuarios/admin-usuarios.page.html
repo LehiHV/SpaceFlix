@@ -1,0 +1,229 @@
+<ion-header> </ion-header>
+
+<ion-content class="content-background">
+  <div style="display: flex; align-items: center">
+    <ion-buttons slot="start" class="toolbar-button">
+      <ion-back-button
+        defaultHref="/admin-servicios"
+        icon="arrow-back-outline"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="sub-text">Usuarios</ion-title>
+  </div>
+  <ion-searchbar
+    [(ngModel)]="searchText"
+    class="rounded-searchbar"
+    placeholder="Buscar cliente"
+    (ionClear)="onSearchBarClear()"
+  ></ion-searchbar>
+  <div style="display: flex; justify-content: space-around">
+    <ion-button
+      color="primary"
+      (click)="searchdeep()">
+      Encontrar usuario especifico
+    </ion-button>
+  </div>
+  <ion-list class="contenedor-form" *ngIf="Clientes && Clientes.length > 0">
+    <ion-item-group
+      *ngFor="let clienteItem of sharedDataService.filter(this.Clientes,this.searchText)"
+    >
+      <!-- Este es el ion-item que contiene el avatar y el usuario LEHI AQUI PON LA FOTO DE EL USUARIO :3 -->
+      <ion-item
+        class="content-background-list"
+        (click)="toggleDetails(clienteItem)"
+      >
+        <ion-avatar slot="start" class="custom-avatar">
+          <img src="assets/usuario-icon2.png" />
+        </ion-avatar>
+        <ion-label>
+          <h2 class="sub-text-5">{{ clienteItem.Usuario }}</h2>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="content-list" *ngIf="showDetails[clienteItem.Id]">
+        <ion-label>ID: {{ clienteItem.Id }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Usuario: {{ clienteItem.Usuario }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Nombre: {{ clienteItem.Nombre_Cliente }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Contraseña: {{ clienteItem.Contrasena }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Telefono: {{ clienteItem.Telefono }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Correo: {{ clienteItem.Correo }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Compras: {{ clienteItem.Total_Compras }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label>Saldo: {{ clienteItem.Creditos }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label
+          >VIP: {{ clienteItem.VIP == 1 ? "Cliente VIP" : "Cliente No VIP"
+          }}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingClient[clienteItem.Id]"
+      >
+        <ion-label
+          >Sub Administador : {{ clienteItem.Sub_Admin == 1 ? "Sub
+          Administrador" : "No Sub Administrador" }}</ion-label
+        >
+      </ion-item>
+
+      <!-- Contenido para editar el Usuario-->
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input
+          [(ngModel)]="clienteItem.Usuario"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input
+          [(ngModel)]="clienteItem.Nombre_Cliente"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          [(ngModel)]="clienteItem.Contrasena"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input
+          [(ngModel)]="clienteItem.Telefono"
+          type="number"
+          maxlength="13"
+          min="1"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input
+          [(ngModel)]="clienteItem.Correo"
+          type="email"
+          maxlength="199"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label position="floating">Saldo</ion-label>
+        <ion-input
+          [(ngModel)]="clienteItem.Creditos"
+          type="number"
+          maxlength="10"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label>VIP</ion-label>
+        <ion-checkbox [(ngModel)]="clienteItem.VIP"></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && editingClient[clienteItem.Id]"
+      >
+        <ion-label>Sub Administrador</ion-label>
+        <ion-checkbox [(ngModel)]="clienteItem.Sub_Admin"></ion-checkbox>
+      </ion-item>
+
+      <ion-item class="content-button" *ngIf="showDetails[clienteItem.Id]">
+        <ion-button
+          color="primary"
+          (click)="edit(clienteItem)"
+          *ngIf="!editingClient[clienteItem.Id]"
+          >Editar</ion-button
+        >
+        <ion-button
+          color="danger"
+          (click)="delete_alert(clienteItem)"
+          *ngIf="!editingClient[clienteItem.Id]"
+          >Eliminar</ion-button
+        >
+        <ion-button
+          color="success"
+          (click)="save(clienteItem)"
+          *ngIf="editingClient[clienteItem.Id]"
+          >Guardar</ion-button
+        >
+        <ion-button
+          color="danger"
+          (click)="cancel(clienteItem)"
+          *ngIf="editingClient[clienteItem.Id]"
+          >Cancelar</ion-button
+        >
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <div class="pagination">
+    <div class="scroll-container">
+      <span
+        *ngFor="let pagina of paginas"
+        (click)="navigateToPage(pagina)"
+        class="page-number"
+      >
+        {{ pagina }}
+      </span>
+    </div>
+  </div>
+</ion-content>

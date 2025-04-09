@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        style="--color: #e5e5e5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Movimientos de SubAdmin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" fullscreen="true">
+  <div class="contenedor-form">
+    <h1 class="h1-reporte">Detalles de movimientos</h1>
+    <p class="text-fallo">Informacion del movimiento</p>
+
+    <ion-card class="card-confirmacion">
+      <ion-card-header>
+        <ion-card-title class="plan-price-confirmacion"
+          >{{sub_admin.Correo}}</ion-card-title
+        >
+      </ion-card-header>
+      <ion-card-content>
+        <p class="service-card">
+          {{sub_admin.action.Seccion}}
+        </p>
+        <p class="service-card">
+          Fecha: {{sub_admin.action.Fecha}}
+        </p>
+        <p class="service-card">
+          {{sub_admin.action.Accion}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+    <br />
+    <button class="btn-cerrar" (click)="volver()">Cerrar</button>
+  </div>
+</ion-content>

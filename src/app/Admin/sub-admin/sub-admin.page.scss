@@ -1,0 +1,139 @@
+.content-background {
+  --background: #f4f5f8;
+}
+
+.contenedor-form {
+  padding: 15px;
+}
+
+.content-background-list {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-background,
+.barra-estilos,
+.toolbar-button,
+.toolbar-title {
+  --background: linear-gradient(to bottom, black, #261c51);
+  color: #cccccc;
+}
+
+.transparency-and-white-text {
+  --background: transparent !important;
+  color: #fff;
+}
+
+.add-button {
+  bottom: 30px;
+  right: 20px;
+  border-radius: 50%;
+  --background: #21a052;
+  font-weight: bold;
+}
+
+.content-background-list {
+  --background: transparent !important;
+  color: #cccccc;
+}
+
+ion-title {
+  text-align: right;
+}
+
+.sub-text {
+  color: #cccccc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 8px;
+  padding: 0 20px;
+}
+
+.page-number {
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: #0e368b;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.page-number:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  div[style*="justify-content: space-around"] {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ion-button {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+}
+
+.custom-avatar {
+  --size: 20px;
+}
+
+.rounded-searchbar {
+  --border-radius: 2.5em;
+  --background: #7d6985;
+  color: #cccccc;
+  width: 18em;
+  font-size: 1.25em;
+  margin-left: auto;
+  margin-right: auto;
+  --icon-color: #cccccc;
+  --icon-font-size: 1.25em;
+}
+
+.content-list {
+  --background: transparent !important;
+  padding-left: 4.5em;
+  color: #cccccc;
+  border-bottom: 1px solid #434343;
+}
+
+.content-button {
+  padding-left: 4.5em;
+  --background: transparent !important;
+}
+
+ion-list {
+  background-color: transparent;
+}
+
+ion-label {
+  font-size: 1rem;
+}
+
+ion-checkbox {
+  --background: #ffffff;
+  --background-checked: #3880ff;
+  --border-color: #3880ff;
+  --border-style: solid;
+  --border-width: 2px;
+  --border-radius: 4px;
+  --checkmark-color: #ffffff;
+}

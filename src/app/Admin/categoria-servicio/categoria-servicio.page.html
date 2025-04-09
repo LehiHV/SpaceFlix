@@ -1,0 +1,35 @@
+<ion-content style="--background: linear-gradient(to bottom, black, #261c51);">
+  <ion-header>
+    <ion-toolbar class="toolbar">
+      <ion-buttons slot="start">
+        <ion-back-button
+          defaultHref="/"
+          style="--color: #e5e5e5">
+        </ion-back-button>
+      </ion-buttons>
+      <ion-title slot="end" class="title">Categorías</ion-title>
+    </ion-toolbar>
+    <div style="color: white; width: 100%; display: flex; flex-direction: column; gap: 20px; align-items: center">
+      <span>Agregar nueva categoría</span>
+      <div style="min-width: 30%; display: flex; flex-direction: column; align-items: center">
+        <ion-input [(ngModel)]="categoryName" label="Nombre:" class="custom-input"/>
+        <ion-button (click)="createCategory()" style="width: 100%">Agregar</ion-button>
+      </div>
+    </div>
+  </ion-header>
+  <br>
+  <br>
+  <div style="display: flex; justify-content: center">
+    <ion-list class="custom-list">
+      <ion-item-group>
+        <ion-item class="content-background-list" *ngFor="let category of categories">
+          <ion-label class="category-name">{{category.Nombre}}</ion-label>
+          <div style="display: flex; gap: 10px;">
+            <ion-button (click)="updateCategory(category)" color="medium">Editar</ion-button>
+            <ion-button (click)="deleteCategory(category.Id)" color="danger">Eliminar</ion-button>
+          </div>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </div>
+</ion-content>

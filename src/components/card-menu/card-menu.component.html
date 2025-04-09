@@ -1,0 +1,124 @@
+
+<div class="contenedor-form">
+  <ion-searchbar class="rounded-searchbar" placeholder="Buscar servicio" #searchBar></ion-searchbar>
+</div>
+<div *ngFor="let category of sharedDataServices.filterService(sharedDataServices.categoriesThreshold,searchBar?.value || '')">
+    <p class="title-bold-category">{{ category[0] }}</p>
+  <div class="contendor-card" >
+    <ion-card class="custom-card" *ngFor="let product of category[1]" (click)="mostrarSegundaCard(product)">
+      <p class="plan-name">{{ product.Nombre }}</p>
+      <p class="plan-Description">{{ product.Descripcion }}</p>
+      <ion-img src="{{product.Foto}}"></ion-img>
+      <ion-card-content>
+        <p class="plan-price">${{ product.Precio }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <br>
+</div>
+
+<!-- Contenedor de toda la pantalla -->
+<div class="contenedor-pantalla" *ngIf="mostrarServicio">
+<ion-card class="card-confirmacion">
+   <ion-img class="ticketFinalIg" src="{{producto_seleccionado.Foto}}"></ion-img>
+  <ion-card-header>
+    <ion-card-title class="title-bold">{{producto_seleccionado.Nombre}}</ion-card-title>
+    <ion-card-title class="title-bold-2">{{producto_seleccionado.Descripcion}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="plan-price-confirmacion">${{producto_seleccionado.Precio}}</p>
+    <p class="cantidad-disponible">
+      <ion-label>Disponibles: </ion-label>
+      <ion-label class="cantidad-disponible-color">{{producto_seleccionado.Cantidad}}</ion-label>
+    </p>
+    <p class="terminos">Términos y condiciones:</p>
+<!--  <p class="terminos">Estás por comprar {{producto_seleccionado.Descripcion}} de {{producto_seleccionado.Nombre}}, solo si estás de acuerdo con éso comprala ya que después de comprado no hay devolución alguna.</p>-->
+    <p class="terminos">{{ producto_seleccionado.Terminos }}</p>
+  </ion-card-content>
+  <br>
+  <ion-button shape="round" class="morado" (click)="confirmarServicio()">Comprar</ion-button>
+  <ion-button shape="round" class="cancelar-button" (click)="cancelarConfirmacion()">Cancelar</ion-button>
+</ion-card>
+<br>
+</div>
+
+<!-- Contenedor de toda la pantalla -->
+<div class="contenedor-pantalla" *ngIf="mostrarConfirmacion">
+<ion-card class="card-confirmacion">
+  <ion-img class="ticketFinalIg" src="{{producto_seleccionado.Foto}}"></ion-img>
+  <ion-card-header>
+    <ion-card-title class="tittle-confirmacion">Confirmación</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+   <p class="texto-confirmacion">¿Estas seguro que deseas comprar el siguiente servicio?</p>
+   <br>
+   <p class="title-bold">{{producto_seleccionado.Nombre}}</p>
+   <p class="title-bold-2">{{producto_seleccionado.Descripcion}}</p>
+   <p class="plan-price-confirmacion">${{producto_seleccionado.Precio}}</p>
+  </ion-card-content>
+  <ion-button shape="round" class="morado-confirmacion"  (click)="confirmarCompra()" [disabled]="isLoading">
+    <ion-spinner *ngIf="isLoading"></ion-spinner>
+        {{ !isLoading ? 'Confirmar' : '' }}
+  </ion-button>
+  <ion-button shape="round" class="cancelar-button" (click)="cancelarConfirmacion()">Cancelar</ion-button>
+</ion-card>
+</div>
+
+<div class="contenedor-pantalla" *ngIf="mostrarCompra">
+<ion-card class="card-confirmacion-ticket">
+  <ion-img class="ticketFinalIg" src="{{ticket.Foto}}"></ion-img>
+  <ion-card-header>
+    <ion-card-title class="title-bold">{{ticket.Producto}}</ion-card-title>
+    <ion-card-title class="title-bold-2">{{ticket.Descripcion}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p class="texto-confirmacion">
+      <ion-label>Correo: </ion-label>
+      <ion-label class="texto-confirmacion-bold">{{ticket.Correo}} </ion-label>
+      <ion-icon name="copy-outline" class="ion-icon-end" (click)="copiarCorreo()"></ion-icon>
+    </p>
+    <p class="texto-confirmacion">
+      <ion-label >Contraseña: </ion-label>
+      <ion-label class="texto-confirmacion-bold">{{ticket.Contrasena}} </ion-label>
+      <ion-icon name="copy-outline" class="ion-icon-end" (click)="copiarContrasena()"></ion-icon>
+    </p>
+    <p class="texto-confirmacion">
+      <ion-label >Perfiles: </ion-label>
+      <ion-label class="texto-confirmacion-bold">{{ticket.Perfiles}}</ion-label>
+    </p>
+    <p class="texto-confirmacion">
+      <ion-label >Pin: </ion-label>
+      <ion-label class="texto-confirmacion-bold">{{ticket.PIN}}</ion-label>
+    </p>
+    <p class="texto-confirmacion">
+      <ion-label >Vencimiento: </ion-label>
+      <ion-label class="texto-confirmacion-bold">{{ticket.Fecha_Expiracion}}</ion-label>
+    </p>
+  <p class="texto-confirmacion-terminos">Terminos y condiciones:</p>
+  <p class="texto-ticket-terminos">Recuerda no se debe cambiar ni correo ni contraseña, use la cantidad de dispositivos comprados, no manipule otros servicios diferentes al suyo, en caso que el servicio corte antes de tiempo no se da garantia por horas ya que el servicio se disfruto en mas de un 97%, Incumplir los terminos podria ocasionar perdida de la cuenta sin devolución  alguna</p>
+  </ion-card-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-button shape="round" id="botonCopiar" class="morado" (click)="copiarInformacion()">{{ textoBoton }}</ion-button>
+    <ion-button shape="round" class="cancelar-button" (click)="cerrarCompra()">Cerrar</ion-button>
+  </ion-row>
+</ion-card>
+</div>
+
+<div class="contenedor-pantalla" *ngIf="warningNoServicios">
+  <ion-card class="card-confirmacion">
+    <ion-img src="assets/card-signo-warning.svg" class="warningImg" alt="Imagen warning"></ion-img>
+    <ion-card-header>
+      <ion-card-title class="tittle-confirmacion">Servicio agotado</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     <p class="texto-confirmacion">No hay disponibilidad por el momento</p>
+     <br>
+     <p class="title-bold">{{producto_seleccionado.Nombre}}</p>
+     <p class="title-bold-2">{{producto_seleccionado.Descripcion}}</p>
+    </ion-card-content>
+    <ion-button shape="round" class="morado-confirmacion" (click)="cerrarWarning()">Aceptar</ion-button>
+  </ion-card>
+</div>
+
+<br>
+

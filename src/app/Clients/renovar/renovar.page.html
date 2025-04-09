@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        style="--color: #e5e5e5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Renovar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+  <div class="contenedor-form">
+    <h1 class="h1-reporte">Realizar renovación</h1>
+    <p class="text-fallo">Informacion de la cuenta</p>
+    <ion-label class="custom-label" position="floating"
+      >Correo de la cuenta</ion-label
+    >
+    <ion-input
+      color="primary"
+      class="custom-input"
+      type="email"
+      [(ngModel)]="correoCuenta"
+    ></ion-input>
+    <br />
+  </div>
+  <div class="contendor-card">
+    <ion-card class="custom-card">
+      <ion-card-content>
+        <!-- Usar la función filterEmail para encontrar el registro coincidente -->
+        <ng-container *ngIf="correoCuenta && sharedDataServices.TicketList">
+          <!-- Obtener el registro coincidente -->
+          <ng-container
+            *ngFor="let ticket of sharedDataServices.filterEmail(sharedDataServices.TicketList, correoCuenta)">
+            <!-- Mostrar los datos del registro coincidente -->
+            <p class="service-card">Servicio: {{ ticket.Producto }}</p>
+            <p class="service-card">Descripcion: {{ ticket.Descripcion }}</p>
+            <p class="service-card">Correo: {{ ticket.Correo }}</p>
+            <p class="service-card">Contraseña: {{ ticket.Contrasena }}</p>
+            <p class="service-card">Perfiles: {{ ticket.Perfiles }}</p>
+            <p class="service-card">PIN: {{ ticket.PIN }}</p>
+            <p class="service-card">
+              Fecha de Compra: {{ ticket.Fecha_de_Compra }}
+            </p>
+            <p class="service-card">
+              Dias Restantes: {{ ticket.Dias_Vigentes }}
+            </p>
+            <p class="service-card">Expira: {{ ticket.Fecha_Expiracion }}</p>
+            <ion-button class="EnviarButton" (click)="mostrarSegundaCard(ticket)" 
+              >Renovar</ion-button
+            > <!-- (click)="renovar(ticket)" -->
+          </ng-container>
+          <!-- Si no hay coincidencias, mostrar un mensaje -->
+          <div
+            class="service-card"
+            *ngIf="sharedDataServices.filterEmail(sharedDataServices.TicketList, correoCuenta).length === 0"
+          >
+            No se encontraron registros para el correo ingresado.
+          </div>
+        </ng-container>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <br />
+
+  <!-- Contenedor de toda la pantalla -->
+<div class="contenedor-pantalla" *ngIf="mostrarConfirmacion">
+  <ion-card class="card-confirmacion">
+    <ion-img src="assets/card-signo-warning.svg" alt="Imagen warning"></ion-img>
+    <ion-card-header>
+      <ion-card-title class="tittle-confirmacion">Confirmación</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     <p class="texto-confirmacion">¿Estas seguro que deseas renovar el siguiente servicio?</p>
+     <br>
+     <p class="title-bold">{{Ticket.Producto}}</p>
+     <p class="title-bold-2">{{Ticket.Descripcion}}</p>
+     <p class="plan-price-confirmacion">$ {{ precioActual }}</p>
+    </ion-card-content>
+    <ion-button shape="round" class="morado-confirmacion" (click)="renovar(Ticket)">Confirmar</ion-button>
+    <ion-button shape="round" class="cancelar-button" (click)="cancelarConfirmacion()" >Cancelar</ion-button>
+  </ion-card>
+  </div>
+
+  <!-- Contenedor de toda la pantalla -->
+  <div class="contenedor-pantalla" *ngIf="mostrarExitoRenovar" >
+    <ion-card class="card-confirmacion">
+      <ion-img src="assets/card-signo-ready.svg" alt="Imagen ready"></ion-img>
+      <ion-card-header>
+        <ion-card-title class="tittle-confirmacion">Exito</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+       <p class="title-bold-2">Cuenta renovada correctamente</p>
+       <br>
+      </ion-card-content>
+      <ion-button shape="round" class="morado-confirmacion" (click)="cerrarExito()">Aceptar</ion-button>
+    </ion-card>
+    </div>
+
+</ion-content>
+<app-tabs></app-tabs>

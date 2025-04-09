@@ -1,0 +1,58 @@
+.Content-Background {
+  background: url("/assets/background-login.svg") center / cover no-repeat,
+    black;
+  /* Ruta a tu imagen de fondo */
+  --background: ;
+  /* Color de fondo */
+  background-size: cover;
+  /* Cubre todo el espacio disponible sin perder proporciones */
+  background-position: center;
+  /* Centra la imagen de fondo */
+  background-repeat: no-repeat;
+  /* Asegura que la imagen no se repita */
+}
+
+ion-button {
+  --background: #72a0c3;
+  --background-hover: #86b7dd;
+  --border-radius: 1.875em;
+  --border-color: #72a0c3;
+  --border-style: solid;
+  width: 70%;
+  height: 3em;
+  --padding-top: 0.625em;
+  --padding-bottom: 0.625em;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+  font-size: 1.25em;
+}
+@media (min-width: 1200px) {
+  .btn-m {
+    --background: #72a0c3; /* color de fondo */
+    --background-hover: #86b7dd; /* color de fondo al pasar el mouse */
+    --border-radius: 1.875em; /* redondeo de bordes */
+    --border-color: #72a0c3; /* color del borde */
+    --border-style: solid; /* estilo del borde */
+    width: 22% !important; /* ancho del botón */
+    height: 3em; /* altura del botón */
+    --padding-top: 0.625em; /* padding superior */
+    --padding-bottom: 0.625em; /* padding inferior */
+    font-weight: 700; /* grosor de la fuente */
+    text-align: center; /* alineación del texto */
+    display: block; /* tipo de display */
+    margin: 10% auto auto; /* márgenes */
+    font-size: 1.25em; /* tamaño de la fuente */
+  }
+}
+
+.Logo {
+  width: 17.125em; // o el ancho que desees
+  height: 7.313em; // mantiene la relación de aspecto de la imagen
+  display: block;
+  margin: auto;
+  margin-top: 15em; // para centrar la imagen si el contenedor lo permite
+  // Asumiendo que quieres mantener este espaciado superior
+}

@@ -1,0 +1,268 @@
+.pagina-completa {
+  background: linear-gradient(to bottom, black, #261c51);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+.content-background,
+.barra-estilos,
+.toolbar-button,
+.toolbar-title {
+  --background: transparent;
+  color: #fff;
+}
+ion-title {
+  text-align: right;
+}
+
+.contenedor-cabecera {
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 1%;
+}
+
+.CargarSaldoButton {
+  --background: #72a0c3;
+  --background-hover: #72a0c3;
+  --border-radius: 1.875em;
+  --border-color: #72a0c3;
+  --border-style: solid;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 1%;
+  font-size: 1.25em;
+  height: 3em;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+.CargarSaldoButton:active {
+  --background: #7aacd2;
+  transform: scale(0.95);
+}
+.contenedor-form {
+  margin: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.sub-text {
+  color: #cccccc;
+}
+
+.sub-text-blue {
+  color: #72a0c3;
+  margin-bottom: 7%;
+  font-weight: 800;
+}
+
+@media (min-width: 1200px) {
+  .sub-text-blue {
+    font-size: 3.2rem !important;
+  }
+  .sub-text {
+    font-size: 1rem !important;
+  }
+  .contenedor-form {
+    width: 37.5rem !important;
+    margin-left: 29.75rem !important;
+    margin-top: -4rem !important;
+  }
+  .button-native {
+    width: 64% !important;
+    clear: both;
+    contain: content;
+  }
+}
+.custom-label {
+  font-size: 1.25em;
+  color: #bdbcbc;
+  font-weight: 800;
+}
+
+.custom-input {
+  font-size: 1.2em;
+  border: 1px solid white;
+  /* Establece el borde blanco */
+  border-radius: 32px;
+  /* Hace que los bordes estén redondeados */
+  color: #bdbcbc;
+}
+
+:host {
+  ion-input {
+    --padding-start: 10px;
+  }
+}
+
+.stats-panel {
+  margin: 15px 0;
+}
+
+.stat-card {
+  --background: transparent;
+  border: 1px solid #72a0c3;
+  border-radius: 15px;
+}
+
+.stat-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.stat-title {
+  color: #bdbcbc;
+  font-size: 1.25em;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  color: #72a0c3;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+ion-datetime {
+  --padding-start: 10px;
+  color: #bdbcbc;
+}
+
+.recharge-list {
+  margin-top: 15px;
+  background: transparent;
+}
+
+.recharge-list ion-item {
+  --background: transparent;
+  border: 1px solid white;
+  border-radius: 32px;
+  margin-bottom: 10px;
+}
+
+.date-text {
+  color: #bdbcbc;
+}
+
+.amount-text {
+  color: #72a0c3;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.BuscarButton {
+  --background: #c78f65;
+  --background-hover: #583e2a;
+  --border-radius: 1.875em;
+  --border-color: #c78f65;
+  --border-style: solid;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+  font-size: 0.75em;
+  margin-right: 77%;
+  height: 1.5em;
+  font-weight: bold;
+}
+.BuscarButton:active {
+  background-color: #583e2a;
+  transform: scale(0.93); 
+}
+.ExportarButton {
+  --background: #4caf50;
+  --background-hover: #45a049;
+  --border-radius: 1.875em;
+  --border-color: #4caf50;
+  --border-style: solid;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+  font-size: 0.75em;
+  margin-right: 70%;
+  height: 1.5em;
+  font-weight: bold;
+}
+
+.ExportarButton:active {
+  --background: #45a049;
+  transform: scale(0.95);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px 0;
+  overflow: hidden;
+  background-color: black;
+  width: 100%;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 8px;
+  padding: 0 20px;
+  max-width: 100%;
+  
+  /* Estilizar la barra de desplazamiento */
+  &::-webkit-scrollbar {
+    height: 5px;
+    background-color: #1a1a1a;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: #72a0c3;
+    border-radius: 5px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: #333;
+    border-radius: 5px;
+  }
+}
+
+.page-number {
+  flex: 0 0 auto;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 40px;
+  text-align: center;
+  
+  &:hover {
+    background-color: #555;
+    transform: scale(1.1);
+  }
+  
+  &.active {
+    background-color: #72a0c3;
+    color: white;
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 1200px) {
+  .pagination {
+    max-width: 37.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .page-number {
+    font-size: 1rem;
+  }
+  
+  .scroll-container {
+    padding: 0 10px;
+  }
+}

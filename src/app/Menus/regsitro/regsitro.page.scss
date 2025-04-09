@@ -1,0 +1,73 @@
+.Content-Background {
+    --background: linear-gradient(to bottom, #9354A3, #BF6196);
+}
+
+.card-login {
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
+    --background: #F2F2F2;
+    border-radius: 40px;
+}
+
+.card-img {
+    margin-top: 5%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+ion-card-title {
+    margin-top: 4%;
+    --color: #000000;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+ion-input {
+    color: #000000;
+    font-size: 19px;
+}
+
+ion-item {
+    --background: #ffffff00;
+}
+
+ion-card-content {
+    margin-top: 4%;
+    margin-bottom: 8%;
+}
+
+.centered-button {
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+}
+
+ion-button {
+    --background: #FF4B3A;
+    --background-hover: #ee928a;
+    --border-radius: 30px;
+    --border-color: #FF4B3A;
+    --border-style: solid;
+    font-size: 16px;
+    width: 65%;
+    height: 7%;
+    font-weight: bold;
+}
+
+.centered-text {
+    text-align: center;
+    display: block;
+    margin: auto;
+    font-size: 19px;
+    margin-bottom: 5%;
+}
+
+.register-text {
+    cursor: pointer;
+    color: #7eb7f3;
+    /* Color azul típicamente usado para enlaces */
+    text-decoration: underline;
+}

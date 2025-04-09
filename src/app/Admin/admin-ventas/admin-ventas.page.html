@@ -1,0 +1,52 @@
+<div class="pagina-completa">
+    <ion-header>
+        <ion-toolbar style="--background: black">
+            <ion-buttons slot="start">
+              <ion-back-button
+                defaultHref="/"
+                style="--color: #E5E5E5"
+              ></ion-back-button>
+            </ion-buttons>
+            <ion-title slot="end" class="sub-text">Ventas</ion-title>
+          </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="content-background">
+        <ion-card-header>
+            <ion-img src="assets/WalletImg.png" class="image-propiedades"></ion-img>
+            <ion-card-title class="gananciastotales">Ganancias totales: </ion-card-title>
+            <ion-card-subtitle class="fecha">{{ getFormattedDate() }}</ion-card-subtitle>
+            <ion-card-title class="precio"><span class="currency-symbol">$</span> 0</ion-card-title>
+        </ion-card-header>
+
+        <div class="user">0 USUARIOS</div>
+
+        <ion-list>
+            <ion-item lines="none">
+                <div class="item-content">
+                    <ion-label class="custom-label">Ganancias totales de plan familia:</ion-label>
+                    <ion-note class="custom-note"><span class="currency-symbol">$</span> 0.0</ion-note>
+                </div>
+            </ion-item>
+            <!-- Repite para cada tipo de plan, ajustando el contenido según sea necesario -->
+            <ion-item lines="none">
+                <div class="item-content">
+                    <ion-label class="custom-label">Ganancias totales de plan individual:</ion-label>
+                    <ion-note class="custom-note"><span class="currency-symbol">$</span> 0.0</ion-note>
+                </div>
+            </ion-item>
+            <ion-item lines="none">
+                <div class="item-content">
+                    <ion-label class="custom-label">Ganancias totales de plan duo:</ion-label>
+                    <ion-note class="custom-note"><span class="currency-symbol">$</span> 0.0</ion-note>
+                </div>
+            </ion-item>
+            <ion-item lines="none">
+                <div class="item-content">
+                    <ion-label class="custom-label">Ganancias totales de plan new:</ion-label>
+                    <ion-note class="custom-note"><span class="currency-symbol">$</span> 0.0</ion-note>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</div>

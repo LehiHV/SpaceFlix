@@ -1,0 +1,122 @@
+.pagina-completa {
+    background: linear-gradient(to bottom, black, #261C51);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+  .content-background, .barra-estilos, .toolbar-button, .toolbar-title {
+    --background: transparent;
+    color: #fff;
+  }
+ion-title {
+    text-align: right;
+}
+
+.sub-text {
+    color: #CCCCCC;
+}
+
+ion-textarea {
+    min-height: 12em;
+    /* Ajusta esto según el tamaño deseado */
+}
+
+.contenedor-form {
+    margin: 2%;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.custom-label {
+    font-size: 1.25em;
+    color: #BDBCBC;
+    font-weight: 800;
+}
+
+.custom-input {
+    font-size: 1.2em;
+    border: 1px solid #BDBCBC;
+    /* Establece el borde blanco */
+    border-radius: 32px;
+    /* Hace que los bordes estén redondeados */
+    color: #BDBCBC;
+}
+
+.custom-area {
+    font-size: 1.2em;
+    border: 1px solid #BDBCBC;
+    /* Establece el borde blanco */
+    border-radius: 15px;
+    /* Hace que los bordes estén redondeados */
+    font-weight: bold;
+    color: #BDBCBC;
+}
+
+.sub-text-blue {
+    color: #72A0C3;
+    margin-top: 5%;
+    margin-bottom: 8%;
+    font-weight: 800;
+}
+
+.btn-enviar {
+    --background: #72a0c3;
+    --background-hover: #72a0c3;
+    --border-radius: 1.875em;
+    --border-color: #72a0c3;
+    --border-style: solid;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: 1.25em;
+    height: 3em;
+    font-weight: bold;
+}
+.btn-reembolso{
+    --background: #e9b229;
+    --background-hover: #ebc35c;
+    --border-radius: 1.875em;
+    --border-color: #e9b229;
+    --border-style: solid;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-size: 1.25em;
+    height: 3em;
+    font-weight: bold;
+}
+.btn-rechazar {
+    --background: #7D6985;
+    --background-hover: #7D6985;
+    --border-radius: 1.875em;
+    --border-color: #7D6985;
+    --border-style: solid;
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top: 1%;
+    font-size: 1.25em;
+    height: 3em;
+    font-weight: bold;
+}
+
+:host {
+    ion-input {
+        --padding-start: 10px;
+    }
+}
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+    .contenedor-form {
+      margin-left: 33%;
+      margin-right: 33%;
+    }
+  
+  }

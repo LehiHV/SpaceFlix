@@ -1,0 +1,118 @@
+<ion-header> </ion-header>
+
+<ion-content class="content-background" [fullscreen]="true">
+  <div class="icon-next" style="display: flex; align-items: center">
+    <ion-icon
+      name="log-out-outline"
+      style="color: #ffffff"
+      slot="start"
+      (click)="logout()"
+    ></ion-icon>
+    <ion-title class="sub-text">Panel Admin</ion-title>
+  </div>
+
+  <div class="contenedor-cabecera">
+    <h2 class="sub-text">Bienvenido {{sharedDataService.userData.Usuario}}</h2>
+  </div>
+  <div class="contenedor-cabecera">
+    <h2 class="text-fecha">Fecha de hoy:
+        <span class="text-fecha" *ngIf="sharedDataService.FechaHoy">
+            {{sharedDataService.FechaHoy | date:'dd/MM/yyyy'}}
+        </span>
+        <span lass="text-fecha" *ngIf="!sharedDataService.FechaHoy">
+          <ion-spinner name="dots"></ion-spinner>Cargando...
+      </span>
+    </h2>
+</div>
+  <div class="contendor-card">
+    <ion-card (click)="irRecargas()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Recargas===1">
+      <ion-img
+        class="card-img"
+        src="assets/admin-recargas.svg"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Recargas</ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="irUsuarios()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Usuarios===1">
+      <ion-img
+        class="card-img"
+        src="assets/admin-usuarios.svg"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Usuarios</ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="irServicios()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Servicios===1">
+      <ion-img
+        class="card-img"
+        src="assets/admin-servicios.svg"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Servicios</ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="irExcel()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Otros===1">
+      <ion-img
+        class="card-img"
+        src="assets/admin-excel.png"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Cuentas & Refs</ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="irVentas()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Ventas===1">
+      <ion-img
+        class="card-img"
+        src="assets/admin-ganancias.svg"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Ventas</ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="irReportes()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Reportes===1">
+      <ion-img
+        class="card-img"
+        src="assets/admin-reportes.svg"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Reportes / Fallos</ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="irCuentas()" class="card-admin" *ngIf="sharedDataService.userData.Admin === 1 || sharedDataService.userData.Cuentas===1">
+      <ion-img
+        class="card-img"
+        src="assets/iconlist.png"
+        alt="Logo Spaceent"
+      ></ion-img>
+      <ion-card-content class="card-text">Cuentas</ion-card-content>
+    </ion-card>
+
+    <ion-card class="card-admin" (click)="irSub_Admins()" *ngIf="sharedDataService.userData.Admin && !sharedDataService.userData.Sub_Admin">
+      <ion-img
+        class="card-img"
+        src="assets/subadmin.png"
+        alt="Logo Subadmin"
+      ></ion-img>
+      <ion-card-content class="card-text">Sub administradores</ion-card-content>
+    </ion-card>
+    <ion-card class="card-admin" (click)="irTickets()" *ngIf="sharedDataService.userData.Admin || sharedDataService.userData.Ticket===1">
+      <ion-img
+        class="card-img"
+        src="assets/ticket-panel.svg"
+        alt="Logo Subadmin"
+      ></ion-img>
+      <ion-card-content class="card-text">Tickets De Venta</ion-card-content>
+    </ion-card>
+    <ion-card class="card-admin" (click)="irCuentas_Bot()" *ngIf="sharedDataService.userData.Admin && !sharedDataService.userData.Sub_Admin">
+      <ion-img
+        class="card-img"
+        src="assets/admin-bot-logo.png"
+        alt="Logo Subadmin"
+      ></ion-img>
+      <ion-card-content class="card-text">Cuentas bot / codigos</ion-card-content>
+    </ion-card>
+  </div>
+  <br />
+  <br />
+</ion-content>

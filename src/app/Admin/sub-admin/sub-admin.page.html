@@ -1,0 +1,335 @@
+<ion-header> </ion-header>
+
+<ion-content class="content-background">
+  <div style="display: flex; align-items: center">
+    <ion-buttons slot="start" class="toolbar-button">
+      <ion-back-button
+        defaultHref="/admin-servicios"
+        icon="arrow-back-outline"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="sub-text">Sub Administradores</ion-title>
+  </div>
+  <div style="display: flex; align-items: center">
+    <ion-searchbar
+      [(ngModel)]="searchText"
+      class="rounded-searchbar"
+      placeholder="Buscar Sub Administrador"
+    ></ion-searchbar>
+  </div>
+  <ion-list class="contenedor-form" *ngIf="SubAdmins && SubAdmins.length > 0">
+    <ion-item-group
+      *ngFor="let subadminItem of sharedDataServices.filter(this.SubAdmins,this.searchText)"
+    >
+      <ion-item
+        class="content-background-list"
+        (click)="toggleDetails(subadminItem)"
+      >
+        <ion-avatar slot="start" class="custom-avatar">
+          <img src="assets/usuario-icon2.png" />
+        </ion-avatar>
+        <ion-label>
+          <h2 class="sub-text-5">{{subadminItem.Usuario}}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item class="content-list" *ngIf="showDetails[subadminItem.Id]">
+        <ion-label>ID: {{ subadminItem.Id }}</ion-label>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label
+          >Usuario: {{subadminItem.Usuario}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label
+          >Nombre: {{subadminItem.Nombre}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label
+          >Contraseña: {{subadminItem.Contrasena}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Telefono: {{subadminItem.Telefono}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Correo: {{subadminItem.Correo}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Recargas: {{subadminItem.Recargas == 0 ? "Recargas No Habilitada" :
+          "Recargas Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Usuarios: {{subadminItem.Usuarios == 0 ? "Usuarios No Habilitada" :
+          "Usuarios Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Servicios: {{subadminItem.Servicios == 0 ? "Servicios No Habilitada"
+          : "Servicios Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Cuentas & Ref: {{subadminItem.Otros == 0 ? "Cuentas & Ref No
+          Habilitada" : "Cuentas & Ref Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Ventas: {{subadminItem.Ventas == 0 ? "Ventas No Habilitada" : "Ventas
+          Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Reportes: {{subadminItem.Reportes == 0 ? "Reportes No Habilitada" :
+          "Reportes Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+      >
+        <ion-label 
+          >Cuentas: {{subadminItem.Cuentas == 0 ? "Cuentas No Habilitada" :
+          "Cuentas Habilitada"}}</ion-label
+        >
+      </ion-item>
+      <ion-item
+      class="content-list"
+      *ngIf="showDetails[subadminItem.Id] && !editingClient[subadminItem.Id]"
+    >
+      <ion-label 
+        >Tickets de venta: {{subadminItem.Ticket == 0 ? "Tickets de venta No Habilitada" :
+        "Tickets de venta Habilitada"}}</ion-label
+      >
+    </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input
+          [(ngModel)]="subadminItem.Usuario"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input
+          [(ngModel)]="subadminItem.Nombre"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input
+          [(ngModel)]="subadminItem.Correo"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          [(ngModel)]="subadminItem.Contrasena"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label position="floating">Telefono</ion-label>
+        <ion-input
+          [(ngModel)]="subadminItem.Telefono"
+          type="text"
+          maxlength="255"
+        ></ion-input>
+      </ion-item>
+      <!-- Secciones con checkbox -->
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Recargas</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Recargas === '1'"
+          (ionChange)="subadminItem.Recargas = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Usuarios</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Usuarios === '1'"
+          (ionChange)="subadminItem.Usuarios = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Servicios</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Servicios === '1'"
+          (ionChange)="subadminItem.Servicios = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Cuentas & Ref.</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Otros === '1'"
+          (ionChange)="subadminItem.Otros = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Ventas</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Ventas === '1'"
+          (ionChange)="subadminItem.Ventas = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Reportes</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Reportes === '1'"
+          (ionChange)="subadminItem.Reportes = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+        class="content-list"
+        *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+      >
+        <ion-label>Cuentas</ion-label>
+        <ion-checkbox
+          [checked]="subadminItem.Cuentas === '1'"
+          (ionChange)="subadminItem.Cuentas = $event.detail.checked ? '1' : '0'"
+        ></ion-checkbox>
+      </ion-item>
+      <ion-item
+      class="content-list"
+      *ngIf="showDetails[subadminItem.Id] && editingClient[subadminItem.Id]"
+    >
+      <ion-label>Ticket</ion-label>
+      <ion-checkbox
+        [checked]="subadminItem.Ticket === '1'"
+        (ionChange)="subadminItem.Ticket = $event.detail.checked ? '1' : '0'"
+      ></ion-checkbox>
+    </ion-item>
+
+      <!-- Botones de Acción -->
+      <ion-item class="content-button" *ngIf="showDetails[subadminItem.Id]">
+        <div style="display: flex; justify-content: space-around">
+          <ion-button
+            color="danger"
+            (click)="delete_alert(subadminItem)"
+            *ngIf="!editingClient[subadminItem.Id]"
+            >Eliminar</ion-button
+          >
+          <ion-button color="secondary" *ngIf="editingClient[subadminItem.Id]">
+            <ion-label>Deshabilitar</ion-label>
+            <ion-toggle
+              slot="end"
+              [checked]="subadminItem.Desabilitada === '1'"
+              (ionChange)="subadminItem.Desabilitada = $event.detail.checked ? '1' : '0'; confirmDeshabilitar(subadminItem)"
+            >
+            </ion-toggle>
+          </ion-button>
+          <ion-button
+            color="primary"
+            (click)="edit(subadminItem)"
+            *ngIf="!editingClient[subadminItem.Id]"
+          >
+            Editar</ion-button
+          >
+          <ion-button
+            color="success"
+            (click)="save(subadminItem)"
+            *ngIf="editingClient[subadminItem.Id]"
+            >Guardar</ion-button
+          >
+          <ion-button
+            color="danger"
+            (click)="cancel(subadminItem)"
+            *ngIf="editingClient[subadminItem.Id]"
+            >Cancelar</ion-button
+          >
+          <ion-button
+            class="add-button"
+            *ngIf="!editingClient[subadminItem.Id]"
+            (click)="irMovimientos(subadminItem)"
+          >
+            <ion-label>Movimientos</ion-label>
+          </ion-button>
+        </div>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

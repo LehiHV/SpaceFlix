@@ -1,0 +1,37 @@
+.Content-Background,.toolbar-button {
+    --background: linear-gradient(to bottom, #000000, #000000);
+    color:#E5E5E5 ;
+  }
+.sub-text{
+    color: #E5E5E5;
+  }
+  ion-title {
+    text-align: right;
+  }
+.toolbar {
+    --background: black;
+    color: #cccccc;
+}
+
+.Negritas {
+    font-weight: bold;
+    font-size: 1.4em;
+    --color: #cccccc;
+}
+
+.card {
+    --background: #422d4b;
+    --color: #cccccc;
+}
+
+.card ion-card-title{
+    --color: #cccccc;
+}
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .card{
+  margin-left: 32%;
+  margin-right: 32%;
+  }
+
+}

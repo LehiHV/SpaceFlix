@@ -1,0 +1,211 @@
+.pagina-completa {
+  background: linear-gradient(to bottom, black, #261c51);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+.content-background,
+.barra-estilos,
+.toolbar-button,
+.toolbar-title {
+  --background: transparent;
+  color: #fff;
+}
+ion-title {
+  text-align: right;
+}
+@media (min-width: 1200px) {
+  .sub-text {
+    font-size: 2rem !important;
+  }
+  .custom-card-2 {
+    width: calc(33.333% - 20px);
+    margin: 10px;
+  }
+  .contenedor-form {
+    width: 533px !important;
+    margin-left: 33rem !important;
+  }
+  .add-button {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    right: 1.875rem !important;
+  }
+  .category-button {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    right: 1.875rem !important;
+  }
+  .pagina-completa {
+    display: flex;
+  }
+  .content-background {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+
+.rounded-searchbar {
+  --border-radius: 40px;
+  --background: #7d6985;
+  color: white;
+  --placeholder-color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25em;
+  --icon-color: #cccccc;
+  --icon-font-size: 1.25em;
+}
+
+ion-title {
+  text-align: right;
+}
+
+.contenedor-cabecera {
+  text-align: center;
+  margin-top: 1%;
+}
+
+.plan-name {
+  font-size: 1.3em;
+  color: #bfc6ff;
+  font-weight: 800;
+}
+
+.plan-description {
+  font-size: 1.15em;
+  color: #bfc6ff;
+  font-weight: 600;
+}
+
+.plan-all {
+  font-size: 0.94em;
+  color: #cccccc;
+  font-weight: 600;
+}
+
+.plan-all-color {
+  font-size: 0.94em;
+  color: #bfc6ff;
+  font-weight: 800;
+}
+
+.sub-text {
+  color: #cccccc;
+}
+
+.contenedor-form {
+  margin: 2%;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.contendor-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.custom-card {
+  width: calc(50% - 24px);
+  margin: 10px;
+  /* Añadimos un margen entre las tarjetas */
+  --background: #422d4b;
+  border-radius: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.custom-card-2 {
+  --background: #422d4b;
+  border-radius: 25px;
+  margin: 10px;
+  /* Añadimos un margen entre las tarjetas */
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-bottom: 4.7%;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 30px;
+  /* Ajusta la distancia desde la parte inferior */
+  right: 20px;
+  /* Ajusta la distancia desde el lado derecho */
+  border-radius: 50%;
+  /* Hace que el botón sea redondo */
+  --background: #d473ec;
+  font-weight: bold;
+}
+
+.category-button {
+  position: fixed;
+  bottom: 90px;
+  /* Ajusta la distancia desde la parte inferior */
+  right: 20px;
+  /* Ajusta la distancia desde el lado derecho */
+  border-radius: 50%;
+  /* Hace que el botón sea redondo */
+  --background: #d473ec;
+  font-weight: bold;
+}
+
+.blue {
+  --background: #72a0c3;
+  --border-radius: 40px;
+  font-size: 0.94em;
+}
+.red {
+  --background: rgb(154, 10, 10);
+  --border-radius: 40px;
+  font-size: 0.94em;
+}
+
+.imagen-izquierda {
+  float: left;
+  width: 50%;
+}
+
+.texto-derecho {
+  float: right;
+  width: 50%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+.button-container-2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.imagen-izquierda img {
+  height: auto;
+  /* Mantiene la altura proporcional */
+  /* O */
+  height: 200px;
+  /* Ajusta la altura manualmente */
+  width: 90%;
+  /* Ajusta el ancho */
+  object-fit: contain;
+  /* Ajusta según tu preferencia */
+  transform: scale(2.1);
+}
+
+.title-bold{
+  font-size: 1.625em;
+  font-weight: bold;
+  color: white;
+  padding-left: 10%;
+  text-align: left;
+}

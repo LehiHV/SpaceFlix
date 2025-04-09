@@ -1,0 +1,137 @@
+<div class="pagina-completa">
+    <ion-header>
+        <ion-toolbar class="toolbar-title">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="/" style="--color: #e5e5e5"></ion-back-button>
+            </ion-buttons>
+            <ion-title slot="end" class="sub-text">Recargas de saldo</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="content-background">
+        <div class="contenedor-cabecera">
+            <h2 class="sub-text-blue">Ingresar información</h2>
+        </div>
+        <div class="contenedor-form">
+            <ion-label class="custom-label" position="floating">Nombre usuario</ion-label>
+            <ion-input color="warning" class="custom-input" type="text" [(ngModel)]="Usuario"></ion-input>
+            <br />
+            <ion-label class="custom-label" position="floating">Email o telefono</ion-label>
+            <ion-input color="warning" class="custom-input" type="email" [(ngModel)]="CorreoTelefono"></ion-input>
+            <br />
+            <ion-label class="custom-label" position="floating">Saldo a ingresar</ion-label>
+            <ion-input color="warning" class="custom-input" type="number" [(ngModel)]="Saldo" min="1" placeholder="$"></ion-input>
+            <br />
+            <ion-button expand="block"class="CargarSaldoButton" [disabled]="estaCargando" (click)="confirmarRecarga()">
+                <ion-spinner *ngIf="estaCargando" name="lines"></ion-spinner>
+                <span *ngIf="!estaCargando">Cargar Saldo</span>
+            </ion-button>
+        </div>
+        <div class="contenedor-cabecera">
+            <h3 class="sub-text-blue">Reportes recargas</h3>
+        </div>
+        
+        <div class="contenedor-form">
+
+            <ion-label  style="color: white;">Seleccionar periodo</ion-label>
+            <div style="display: flex; gap: 10px;">
+                <ion-input style="color: white;" type="date" [(ngModel)]="fechaInicio"></ion-input>
+                <ion-input style="color: white;" type="date" [(ngModel)]="fechaFin"></ion-input>
+            </div>
+            <ion-button class="BuscarButton" (click)="buscarRecargas()">Buscar</ion-button>
+            <ion-button 
+        class="ExportarButton" 
+        (click)="exportarExcel()"
+        [disabled]="recargas.length === 0">
+        <ion-icon name="download-outline" ></ion-icon>
+        Exportar Excel
+    </ion-button>
+
+           <!-- Stats Panel -->
+<div class="stats-panel">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-md="4">
+                <ion-card class="stat-card">
+                    <ion-card-content class="stat-content">
+                        <div class="stat-title">Total Recargas</div>
+                        <div class="stat-value">{{stats.total_recargas}}</div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+                <ion-card class="stat-card">
+                    <ion-card-content class="stat-content">
+                        <div class="stat-title">Total sin comisión</div>
+                        <div class="stat-value">${{stats.monto_total | number:'1.2-2'}}</div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-md="4">
+                <ion-card class="stat-card">
+                    <ion-card-content class="stat-content">
+                        <div class="stat-title">Total comisiones</div>
+                        <div class="stat-value">${{stats.total_comisiones | number:'1.2-2'}}</div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-md="6">
+                <ion-card class="stat-card">
+                    <ion-card-content class="stat-content">
+                        <div class="stat-title">Total con comisión</div>
+                        <div class="stat-value">${{stats.monto_total_con_comision | number:'1.2-2'}}</div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+                <ion-card class="stat-card">
+                    <ion-card-content class="stat-content">
+                        <div class="stat-title">Promedio por recarga</div>
+                        <div class="stat-value">${{stats.promedio | number:'1.2-2'}}</div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+
+<!-- Lista de recargas -->
+<ion-list class="recharge-list">
+    <ion-item *ngFor="let recarga of recargas">
+        <ion-label>
+            <h4 class="sub-text">Usuario: {{recarga.NombreUsuario || 'Usuario ' + recarga.Id_Usuario}}</h4>
+            <p class="date-text">Fecha: {{recarga.Fecha_Aprobacion_Compra}}</p>
+            <p class="date-text">Id Transacción: {{recarga.Id}}</p>
+            <p class="date-text">
+                Saldo recargado: ${{recarga.Total_Compra | number:'1.2-2'}} | 
+                Comisión: ${{recarga.Cantidad_Tarifa | number:'1.2-2'}}
+            </p>
+        </ion-label>
+        <ion-note slot="end" class="amount-text">
+            ${{recarga.Total_Con_Comision | number:'1.2-2'}}
+        </ion-note>
+    </ion-item>
+
+    <div *ngIf="recargas.length === 0" style="color: white">
+        No hay recargas en el período seleccionado
+    </div>
+</ion-list>
+
+<!-- Paginación -->
+<div class="pagination" *ngIf="totalPages > 0">
+    <div class="scroll-container">
+        <span
+            *ngFor="let pagina of getPaginasArray()"
+            (click)="navigateToPage(pagina)"
+            [class.active]="currentPage === pagina"
+            class="page-number"
+        >
+            {{ pagina }}
+        </span>
+    </div>
+</div>
+        </div>
+    </ion-content>
+</div>

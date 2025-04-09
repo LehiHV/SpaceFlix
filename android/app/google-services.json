@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "997032040263",
+    "project_id": "spaceflix-app",
+    "storage_bucket": "spaceflix-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997032040263:android:abd9d4d7e94b3eb2559e62",
+        "android_client_info": {
+          "package_name": "io.PHMSoft.SF"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJzyp8kgiiQlb9IhnQ8alLLI-t6-dY-ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

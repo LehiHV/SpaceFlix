@@ -1,0 +1,300 @@
+<div class="pagina-completa">
+  <ion-header [translucent]="true">
+    <ion-toolbar class="toolbar-title">
+      <ion-buttons slot="start">
+        <ion-back-button
+          defaultHref="/"
+          style="--color: #e5e5e5"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-title slot="end" class="sub-text">Cuentas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="content-background">
+    <div class="contenedor-form">
+      <ion-searchbar
+        class="rounded-searchbar"
+        placeholder="Buscar cuenta"
+        [(ngModel)]="searchText"
+        (ionClear)="onSearchBarClear()"
+      ></ion-searchbar>
+
+        <ion-button color="primary" style="margin-bottom: 1% ;" (click)="searchdeep()">Encontrar cuenta especifica</ion-button>
+
+        <ion-radio-group [(ngModel)]="selectedOption" (ionChange)="showSelectedOption()">
+          <ion-item class="content-background-list-filtro">
+            <ion-label class="radio-label" >Cuentas Validas</ion-label>
+            <ion-radio class="custom-radio" value="1"></ion-radio>
+          </ion-item>
+          <ion-item class="content-background-list-filtro">
+            <ion-label class="radio-label" >Cuentas No Validas</ion-label>
+            <ion-radio class="custom-radio" value="2"></ion-radio>
+          </ion-item>
+          <ion-item class="content-background-list-filtro">
+            <ion-label class="radio-label" >Cuentas No Renovadas</ion-label>
+            <ion-radio class="custom-radio" value="4"></ion-radio>
+          </ion-item>
+          <ion-item class="content-background-list-filtro">
+            <ion-label class="radio-label" >Cuentas Renovadas</ion-label>
+            <ion-radio class="custom-radio" value="3"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      <ion-button color="danger" (click)="limpiarFiltro()">Limpiar filtro</ion-button>
+    
+
+    <ion-list *ngIf="Cuentas && Cuentas.length > 0">
+      <ion-item-group
+        *ngFor="let clienteItem of sharedDataService.filterEmail(this.Cuentas,this.searchText)">
+        <!-- Este es el ion-item que contiene el avatar y el usuario LEHI AQUI PON LA FOTO DE EL USUARIO :3 -->
+        <ion-item class="content-background-list" (click)="toggleDetails(clienteItem)">
+          <ion-avatar slot="start" class="custom-avatar">
+            <img src="{{clienteItem.Foto}}" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ clienteItem.Correo }}</h2>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="content-list" *ngIf="showDetails[clienteItem.Id]">
+          <ion-label>ID: {{ clienteItem.Id }}</ion-label>
+        </ion-item>
+        <ion-item class="content-list" *ngIf="showDetails[clienteItem.Id]">
+          <ion-label>Servicio: {{ clienteItem.Servicio }}</ion-label>
+        </ion-item>
+        <ion-item class="content-list" *ngIf="showDetails[clienteItem.Id]">
+          <ion-label>Descripcion Servicio: {{ clienteItem.Descripcion }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label>Correo: {{ clienteItem.Correo }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label>Contraseña: {{ clienteItem.Contrasena }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label>Perfiles: {{ clienteItem.Perfiles }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label>PIN: {{ clienteItem.PIN }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label
+            >Fecha de Registro: {{ clienteItem.Fecha_Registro }}</ion-label
+          >
+        </ion-item>
+      
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label>Dias Vigente: {{ clienteItem.Dias_Vigente }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label
+            >Dias Restantes: {{ clienteItem.Dias_Restantes }}</ion-label
+          >
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label>Veces Renovada: {{ clienteItem.Renovaciones }}</ion-label>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+        >
+          <ion-label
+            >Tipo de Cuenta: {{ clienteItem.Tipo_de_Cuenta }}</ion-label
+          >
+        </ion-item>
+     
+        <ion-item
+        class="content-list"
+        *ngIf="showDetails[clienteItem.Id] && !editingAccount[clienteItem.Id]"
+      >
+        <ion-label
+          >Valida: {{ clienteItem.Valido == 1 ? "Cuenta Valida" : "Cuenta No
+          Valida" }}</ion-label
+        >
+      </ion-item>
+       
+       
+
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Correo"
+            type="email"
+            maxlength="199"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Contrasena"
+            type="text"
+            maxlength="255"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Perfiles</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Perfiles"
+            type="text"
+            maxlength="255"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">PIN</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.PIN"
+            type="number"
+            maxlength="255"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Fecha de Registro</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Fecha_Registro"
+            type="date"
+            maxlength="255"
+          ></ion-input>
+        </ion-item>
+      
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Dias Vigente</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Dias_Vigente"
+            type="number"
+            maxlength="13"
+            min="1"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Dias Restantes</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Dias_Restantes"
+            type="number"
+            maxlength="13"
+            min="1"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Veces Renovada</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Renovaciones"
+            type="number"
+            maxlength="13"
+            min="1"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label position="floating">Tipo de Cuenta</ion-label>
+          <ion-input
+            [(ngModel)]="clienteItem.Tipo_de_Cuenta"
+            type="number"
+            maxlength="10"
+          ></ion-input>
+        </ion-item>
+        <ion-item
+          class="content-list"
+          *ngIf="showDetails[clienteItem.Id] && editingAccount[clienteItem.Id]"
+        >
+          <ion-label>Valida</ion-label>
+          <ion-checkbox [(ngModel)]="clienteItem.Valido"></ion-checkbox>
+        </ion-item>
+
+        <ion-item class="content-button" *ngIf="showDetails[clienteItem.Id]">
+          <ion-button
+            color="primary"
+            (click)="edit(clienteItem)"
+            *ngIf="!editingAccount[clienteItem.Id]"
+            >Editar</ion-button
+          >
+          <ion-button
+            color="danger"
+            (click)="delete_alert(clienteItem)"
+            *ngIf="!editingAccount[clienteItem.Id]"
+            >Eliminar</ion-button
+          >
+          <ion-button
+            color="success"
+            (click)="save(clienteItem)"
+            *ngIf="editingAccount[clienteItem.Id]"
+            >Guardar</ion-button
+          >
+          <ion-button
+            color="danger"
+            (click)="cancel(clienteItem)"
+            *ngIf="editingAccount[clienteItem.Id]"
+            >Cancelar</ion-button
+          >
+          <ion-button
+            color="warning"
+            (click)="NoValid_Alert(clienteItem.Id)"
+            *ngIf="!editingAccount[clienteItem.Id]"
+            >Cambiar a No Renovado</ion-button
+          >
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </div>
+    <div class="pagination">
+      <div class="scroll-container">
+        <span
+          *ngFor="let pagina of paginas"
+          (click)="navigateToPage(pagina)"
+          class="page-number"
+        >
+          {{ pagina }}
+        </span>
+      </div>
+    </div>
+  </ion-content>
+</div>

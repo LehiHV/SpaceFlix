@@ -1,0 +1,81 @@
+<ion-menu menuId="main-menu" contentId="main">
+  <div class="toolbar-negro-2">
+    <div class="toolbar-negro toolbar-negro-2">
+      <ion-title class="negritas-menu">Menú</ion-title>
+    </div>
+  </div>
+  <ion-content class="toolbar-negro">
+    <br />
+    <div style="display: flex; flex-direction: row">
+      <ion-img
+        style="margin-left: 102px"
+        src="assets/usuario-icon2.png"
+        routerLink="/perfil-usuario"
+      ></ion-img>
+      <ion-img
+        *ngIf="
+          sharedDataService.userData != null &&
+          sharedDataService.userData.VIP === 1
+        "
+        src="assets/vipIcon.png"
+        style="width: 30% !important; margin-left: 6.25rem"
+      ></ion-img>
+    </div>
+    <br />
+    <div
+      class="label-with-icon"
+      routerLink="/reportes"
+      [ngClass]="{ highlighted: activeRoute === '/reportes' }"
+    >
+      <ion-img src="assets/icono-1.png" class="icono"></ion-img>
+      <ion-label class="toolbar-negro-content">Reportes</ion-label>
+    </div>
+    <br />
+    <div
+      class="label-with-icon"
+      routerLink="/renovar"
+      [ngClass]="{ highlighted: activeRoute === '/renovar' }"
+    >
+      <ion-img src="assets/icono-2.png" class="icono"></ion-img>
+      <ion-label class="toolbar-negro-content">Renovar</ion-label>
+    </div>
+    <br />
+    <div
+      class="label-with-icon"
+      routerLink="/movimientos"
+      [ngClass]="{ highlighted: activeRoute === '/movimientos' }"
+    >
+      <ion-img src="assets/icono-3.png" class="icono"></ion-img>
+      <ion-label class="toolbar-negro-content">Movimientos</ion-label>
+    </div>
+    <br />
+    <div
+      class="label-with-icon"
+      routerLink="/comprar-creditos"
+      [ngClass]="{ highlighted: activeRoute === '/comprar-creditos' }"
+    >
+      <ion-img src="assets/card-white.png" class="icono"></ion-img>
+      <ion-label class="toolbar-negro-content">Recargar saldo</ion-label>
+    </div>
+    <br />
+    <div
+      class="label-with-icon"
+      routerLink="/ayuda"
+      [ngClass]="{ highlighted: activeRoute === '/ayuda' }"
+    >
+      <ion-img src="assets/icono-4.png" class="icono"></ion-img>
+      <ion-label class="toolbar-negro-content">Ayuda</ion-label>
+    </div>
+    <br />
+    <!-- Posición y tamaño ajustado del icono de cierre de sesión -->
+    <div style="position: absolute; bottom: 0; right: 0; margin: 20px">
+      <ion-icon
+        name="log-out-outline"
+        style="font-size: 65px; color: #3880ff"
+        (click)="logout()"
+      ></ion-icon>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>

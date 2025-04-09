@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        style="--color: #e5e5e5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+  <div class="contenedor-form">
+    <h1 class="h1-reporte">Realiza tu reporte</h1>
+    <p class="text-fallo">Informacion del reporte</p>
+    <ion-label class="custom-label" position="floating"
+      >Correo de la cuenta</ion-label
+    >
+    <ion-input
+      color="primary"
+      class="custom-input"
+      type="email"
+      [(ngModel)]="correoCuenta"
+    ></ion-input>
+    <br />
+    <h2 class="custom-label">Descripción del problema</h2>
+    <ion-textarea
+      color="warning"
+      class="custom-input"
+      [(ngModel)]="Reporte"
+      aria-placeholder="Escribe tus razones del reporte"
+    ></ion-textarea>
+    <br />
+    <button routerLink="/vista-reportes-usuario" class="RespuestasButton">
+      Respuestas de reportes
+    </button>
+    <br />
+  </div>
+  <div class="contendor-card">
+    <ion-card
+      class="custom-card"
+      *ngFor="let ticket of sharedDataService.filterEmail(this.sharedDataService.TicketList,this.correoCuenta)"
+    >
+      <ion-card-content *ngIf="ticket.Dias_Vigentes > 0">
+        <p class="service-card">Servicio: {{ ticket.Producto }}</p>
+        <p class="service-card">Correo: {{ ticket.Correo }}</p>
+        <p class="service-card">Contraseña: {{ ticket.Contrasena }}</p>
+        <p class="service-card">Perfiles: {{ ticket.Perfiles }}</p>
+        <p class="service-card">PIN: {{ ticket.PIN }}</p>
+        <p class="service-card">
+          Fecha de Compra: {{ ticket.Fecha_de_Compra }}
+        </p>
+        <p class="service-card">Dias Restantes: {{ ticket.Dias_Vigentes }}</p>
+        <p class="service-card">Expira: {{ ticket.Fecha_Expiracion }}</p>
+        <p class="service-card">Total: {{ ticket.Total }}</p>
+        <ion-button class="EnviarButton" (click)="CrearReporte(ticket)"
+          >ENVIAR</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <br />
+</ion-content>
+<app-tabs></app-tabs>

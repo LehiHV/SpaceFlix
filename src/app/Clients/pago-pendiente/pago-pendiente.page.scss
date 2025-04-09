@@ -1,0 +1,143 @@
+.page-container{
+  background: linear-gradient(to bottom, black, #261c51);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #cccccc;
+}
+
+.title {
+  font-size: 2rem !important;
+  color: #fff;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1rem !important;
+  color: #fff;
+  text-align: center;
+}
+.h1-recarga {
+  color: #72a0c3;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+.sub-text{
+  color: #E5E5E5;
+}
+.toolbar {
+  --background: transparent;
+}
+
+.custom-input {
+  --background: transparent;
+  font-size: 1.2em;
+  border: 1px solid white;
+  border-radius: 32px;
+  color: #bdbcbc;
+}
+
+.rounded-searchbar {
+  --border-radius: 2.5em;
+  --background: #7d6985;
+  color: #cccccc;
+  width: 100%;
+  font-size: 1.25em;
+  margin-left: auto;
+  /* Centra el elemento horizontalmente */
+  margin-right: auto;
+  /* Centra el elemento horizontalmente */
+  --icon-color: #cccccc;
+  /* Cambia el color del icono */
+  --icon-font-size: 1.25em;
+  /* Cambia el tamaño del icono */
+}
+
+
+
+.filters-form-container {
+  max-width: 90%;
+}
+
+.dates-filter{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.date-picker{
+  --background: transparent;
+  color: #cccccc;
+}
+
+
+.content-background-list {
+  --background: transparent !important;
+  color: #cccccc;
+  box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.accordion-container {
+  color: #cccccc;
+  width: 100%;
+}
+
+@media (min-width: 1000px) {
+  /* Estilos para resoluciones de 1000px o más */
+  .accordion-container {
+    width: 50%;
+  }
+}
+
+
+.custom-accordion {
+  background-color: transparent;
+  cursor: default;
+}
+
+.ticket-details {
+  --background: transparent !important;
+  color: #cccccc;
+  border-bottom: 1px solid #434343;
+  padding-left: 4.5em;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; /* Centra el contenedor de la paginación */
+  margin-top: 20px;
+  padding: 10px 0; /* Espacio superior e inferior */
+  overflow: hidden;
+  background-color: black;
+
+}
+
+.page-number {
+  flex: 0 0 auto; /* Evita que los elementos se estiren o encojan */
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: #333; /* Fondo gris oscuro para cada número */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave al cambiar de color y al transformar */
+}
+
+.page-number:hover {
+  background-color: #555; /* Cambio de color al pasar el ratón */
+  transform: scale(1.1); /* Efecto de escalado */
+}
+
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Permite un desplazamiento fluido en iOS */
+  gap: 8px; /* Espacio entre cada número */
+  padding: 0 20px; /* Espacio horizontal para mejor accesibilidad de los bordes */
+}

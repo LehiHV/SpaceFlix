@@ -1,0 +1,135 @@
+.Content-Background,.toolbar-button{
+  --background: linear-gradient(to bottom, #000000, #000000);
+  color:#E5E5E5 ;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #cccccc;
+}
+
+.title {
+  font-size: 2rem !important;
+  color: #fff;
+}
+
+.toolbar {
+  --background: transparent;
+}
+
+.custom-input {
+  font-size: 1.2em;
+  border: 1px solid #BDBCBC;
+  border-radius: 10px;
+  color: #000000;
+  font-weight: bold;
+  color: #BDBCBC;
+}
+.custom-label {
+  font-size: 1.3em;
+  color: #BDBCBC;
+  font-weight: bold;
+}
+
+.date-picker{
+  --background: transparent;
+  color: #cccccc;
+}
+
+.content-background-list {
+  --background: transparent !important;
+  color: #cccccc;
+  box-shadow: 2px 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.accordion-container {
+  color: #cccccc;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .contenedor-form {
+    margin: 2%;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+}
+
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .contenedor-form {
+    margin: 2%;
+    margin-left: 32%;
+    margin-right: 32%;
+  }
+}
+
+.ticket-details {
+  --background: transparent !important;
+  color: #cccccc;
+  border-bottom: 1px solid #434343;
+  padding-left: 4.5em;
+}
+.sub-text{
+  color: #E5E5E5;
+}
+
+.h1-recarga {
+  color: #72a0c3;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+.h1-recarga-2 {
+  color: #72a0c3;
+  font-weight: bold;
+  font-size: 1.65em;
+}
+.custom-card{
+  background-color: #7D6985; /* Color de fondo */
+  border-radius: 15px;
+}
+.service-card {
+  font-size: 1.2em;
+  color: #BDBCBC;
+}
+.PagarButton {
+  --background: #72a0c3;
+  --background-hover: #7aacd2;
+  --border-radius: 1.875em;
+  --border-color: #72a0c3;
+  --border-style: solid;
+  text-align: center;
+  display: block;
+  margin: auto;
+  font-size: 1em;
+  margin-top: 3%;
+ margin-left: 10%;
+ margin-right: 10%;
+  height: 3em;
+  font-weight: bold;
+}
+.PagarButton:active {
+  --background: #7aacd2;
+  transform: scale(0.95);
+}
+.BuscarButton {
+  --background: #c78f65;
+  --background-hover: #583e2a;
+  --border-radius: 1.875em;
+  --border-color: #c78f65;
+  --border-style: solid;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: 2%;
+  font-size: 0.75em;
+  margin-right: 77%;
+  height: 1.5em;
+  font-weight: bold;
+}
+.BuscarButton:active {
+  background-color: #583e2a;
+  transform: scale(0.93); 
+}

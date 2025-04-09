@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/vista-reportes-usuario"
+        style="--color: #E5E5E5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+  <div class="contenedor-form">
+    <h1 class="h1-reporte">Respuesta de reportes</h1>
+    <p class="text-fallo">Informacion del reporte</p>
+
+    <ion-card class="card-confirmacion">
+      <ion-card-header>
+        <ion-card-title class="plan-price-confirmacion"
+          >{{reporte.Correo}}</ion-card-title
+        >
+      </ion-card-header>
+      <ion-card-content>
+        <p class="service-card">Servicio: {{reporte.Servicio}}</p>
+        <p class="service-card">Correo: {{reporte.Correo}}</p>
+        <p class="service-card">Contraseña: {{reporte.Contrasena}}</p>
+        <p class="service-card">Perfiles: {{reporte.Perfiles}}</p>
+        <p class="service-card">PIN: {{reporte.PIN}}</p>
+        <p class="service-card">Fecha de Compra: {{reporte.Fecha_de_Compra}}</p>
+        <p class="service-card">Expira: {{reporte.Fecha_Expiracion}}</p>
+        <p class="service-card">Dias Restantes: {{reporte.Dias_Vigentes}}</p>
+        <p class="service-card-reque">Requerimiento:</p>
+        <p class="service-card">({{reporte.Problema}})</p>
+        <p class="service-card">
+          Fecha requerimiento: {{reporte.Fecha_Inicio}}
+        </p>
+        <p class="service-card-respue">Respuesta al requerimiento:</p>
+        <p class="service-card">({{reporte.Respuesta}})</p>
+        <p class="service-card">Fecha respuesta: {{reporte.Fecha_Cierre}}</p>
+      </ion-card-content>
+    </ion-card>
+    <br />
+    <button class="btn-cerrar" (click)="close()">Cerrar</button>
+  </div>
+</ion-content>

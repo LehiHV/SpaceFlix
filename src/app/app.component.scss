@@ -1,0 +1,54 @@
+.ion-header-custom {
+  --ion-background-color: #422d4b; /* Color de fondo específico */
+}
+
+.toolbar-negro {
+  --background: #000000;
+}
+
+.toolbar-negro-2 {
+  background: linear-gradient(#412c4c, #271c51);
+  height: 3rem;
+}
+
+.toolbar-negro-content {
+  color: white;
+  font-size: 1.35em;
+  margin-left: 5%;
+}
+
+ion-img {
+  width: 32%;
+  height: auto;
+  display: block;
+}
+
+.highlighted {
+  color: #72a0c3;
+  font-weight: bold;
+}
+
+.negritas-menu {
+  font-weight: bold;
+  color: white;
+  font-size: 1.813rem;
+  margin-top: 0.375rem;
+}
+
+.Content-Background-1 {
+  background: linear-gradient(to bottom, #9354a3, #bf6196);
+}
+
+/* Clase personalizada para la imagen y el label juntos */
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Para que sea clicable */
+  margin-left: 5%; /* Asegura que esté alineado con los otros labels */
+}
+
+.label-with-icon ion-img.icono {
+  width: 36px; /* Ajusta el tamaño según sea necesario */
+  height: 36px;
+  margin-right: 12px; /* Espacio entre la imagen y el texto */
+}

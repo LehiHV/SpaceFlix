@@ -1,0 +1,92 @@
+.pagina-completa {
+  background-image: url('/assets/adminbackgroundnew.svg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-background {
+  --background: transparent !important;
+  color: #cccccc;
+}
+
+.barra-estilos {
+  --background: transparent !important;
+  color: #cccccc;
+}
+
+.tituloreportesadmin {
+  text-align: right;
+}
+
+.rounded-searchbar {
+  --border-radius: 2.5em;
+  --background: #7d6985;
+  color: #cccccc;
+  width: 18em;
+  font-size: 1.25em;
+  margin-left: auto;
+  /* Centra el elemento horizontalmente */
+  margin-right: auto;
+  /* Centra el elemento horizontalmente */
+  --icon-color: #cccccc;
+  /* Cambia el color del icono */
+  --icon-font-size: 1.25em;
+  /* Cambia el tamaño del icono */
+}
+
+.prueba {
+  font-weight: bold;
+}
+
+ion-list {
+  --ion-item-background: transparent !important;
+  color: #cccccc;
+}
+
+.list-content {
+  color: #cccccc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; /* Centra el contenedor de la paginación */
+  margin-top: 20px;
+  padding: 10px 0; /* Espacio superior e inferior */
+  overflow: hidden;
+  background-color: black;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Permite un desplazamiento fluido en iOS */
+  gap: 8px; /* Espacio entre cada número */
+  padding: 0 20px; /* Espacio horizontal para mejor accesibilidad de los bordes */
+}
+
+.page-number {
+  flex: 0 0 auto; /* Evita que los elementos se estiren o encojan */
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: #333; /* Fondo gris oscuro para cada número */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave al cambiar de color y al transformar */
+}
+
+.page-number:hover {
+  background-color: #555; /* Cambio de color al pasar el ratón */
+  transform: scale(1.1); /* Efecto de escalado */
+}
+
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .contenedor-form {
+    margin-left: 33%;
+    margin-right: 33%;
+  }
+
+}

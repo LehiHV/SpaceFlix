@@ -1,0 +1,107 @@
+.content-background,
+.barra-estilos,
+.toolbar-button,
+.toolbar-title {
+  --background: linear-gradient(to bottom, black, #261c51);
+  color: #cccccc;
+}
+.transparency-and-white-text {
+  --background: transparent;
+  color: #fff;
+}
+.content-background-list {
+  --background: transparent !important;
+  color: #cccccc;
+}
+ion-title {
+  text-align: right;
+}
+.sub-text {
+  color: #cccccc;
+}
+.pagination {
+  display: flex;
+  justify-content: center; /* Centra el contenedor de la paginación */
+  margin-top: 20px;
+  padding: 10px 0; /* Espacio superior e inferior */
+  overflow: hidden;
+  background-color: black;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Permite un desplazamiento fluido en iOS */
+  gap: 8px; /* Espacio entre cada número */
+  padding: 0 20px; /* Espacio horizontal para mejor accesibilidad de los bordes */
+}
+
+.page-number {
+  flex: 0 0 auto; /* Evita que los elementos se estiren o encojan */
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: #333; /* Fondo gris oscuro para cada número */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave al cambiar de color y al transformar */
+}
+
+.page-number:hover {
+  background-color: #555; /* Cambio de color al pasar el ratón */
+  transform: scale(1.1); /* Efecto de escalado */
+}
+
+@media (min-width: 1200px) {
+  .custom-avatar img {
+    width: 80px;
+    height: 80px;
+  }
+
+  ion-item-group {
+    border-top: 1px solid #ccc;
+  }
+  .contenedor-form {
+    margin-left: 33%;
+    margin-right: 33%;
+  }
+}
+
+.custom-avatar {
+  --size: 20px;
+  /* O el tamaño que prefieras */
+}
+
+.rounded-searchbar {
+  --border-radius: 2.5em;
+  --background: #7d6985;
+  color: #cccccc;
+  width: 18em;
+  font-size: 1.25em;
+  margin-left: auto;
+  /* Centra el elemento horizontalmente */
+  margin-right: auto;
+  /* Centra el elemento horizontalmente */
+  --icon-color: #cccccc;
+  /* Cambia el color del icono */
+  --icon-font-size: 1.25em;
+  /* Cambia el tamaño del icono */
+}
+
+.content-list {
+  --background: transparent !important;
+  padding-left: 4.5em;
+  color: #cccccc;
+  border-bottom: 1px solid #434343;
+}
+
+.content-button {
+  padding-left: 4.5em;
+  --background: transparent !important;
+}
+
+/* CSS */
+
+ion-list {
+  background-color: transparent;
+  /* Establece el fondo transparente */
+}

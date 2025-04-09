@@ -1,0 +1,131 @@
+.Content-Background,
+.toolbar-button {
+  --background: linear-gradient(to bottom, #000000, #000000);
+  color: #e5e5e5;
+}
+.sub-text {
+  color: #e5e5e5;
+}
+.Negritas {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+ion-title {
+  text-align: right;
+}
+ion-back-button {
+  --color: white;
+}
+
+.contendor-card {
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.custom-card {
+  background-color: #7d6985; /* Color de fondo */
+  border-radius: 15px;
+}
+.custom-label {
+  font-size: 1.3em;
+  color: #bdbcbc;
+  font-weight: bold;
+}
+.custom-input {
+  font-size: 1.2em;
+  border: 1px solid #bdbcbc;
+  border-radius: 10px;
+  color: #000000;
+  font-weight: bold;
+  color: #bdbcbc;
+}
+
+.h1-reporte {
+  color: #72a0c3;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+.text-fallo {
+  color: #bdbcbc;
+}
+
+.service-card {
+  font-size: 1.2em;
+  color: #bdbcbc;
+}
+
+.RespuestasButton {
+  background-color: #422d4b;
+  /* Color de fondo gris oscuro */
+  color: white;
+  /* Color de texto blanco */
+  border: none;
+  /* Sin bordes */
+  border-radius: 2.5rem;
+  /* Bordes redondeados */
+  font-size: 0.938em;
+  /* Tamaño de la fuente */
+  line-height: 40px;
+  /* Altura de línea para controlar la altura del botón */
+  height: 3.563rem;
+  /* Altura del botón */
+  width: 16rem;
+  /* Ancho del botón */
+  text-align: center;
+  /* Alineación del texto */
+  font-weight: 800;
+  /* Fuente en negrita */
+  display: block;
+  /* O display: inline-block; si prefieres */
+  box-shadow: 0px 3px 6px #00000029;
+  /* Sombra del botón */
+  text-transform: uppercase;
+  /* Texto en mayúsculas */
+  margin: auto;
+  /* Auto-márgenes para centrar horizontalmente */
+}
+
+.EnviarButton {
+  --background: #72a0c3;
+  --background-hover: #72a0c3;
+  --border-radius: 1.875em;
+  --border-color: #72a0c3;
+  --border-style: solid;
+  text-align: center;
+  display: block;
+  margin: auto;
+  font-size: 1.15em;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 3em;
+  font-weight: bold;
+}
+
+.EnviarButton:active {
+  --background: #92bdde;
+  transform: scale(0.90); /* Reduce ligeramente el tamaño */
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px (típicamente dispositivos móviles) */
+@media screen and (max-width: 768px) {
+  .contenedor-form {
+    margin: 2%;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+}
+
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .contenedor-form {
+    margin: 2%;
+    margin-left: 32%;
+    margin-right: 32%;
+  }
+  .contendor-card {
+    margin-left: 31%;
+    margin-right: 31%;
+  }
+  
+}

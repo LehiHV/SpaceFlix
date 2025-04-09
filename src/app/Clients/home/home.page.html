@@ -1,0 +1,40 @@
+<ion-header [translucent]="true" class="ion-header-custom">
+    <ion-toolbar class="toolbar-negro">
+        <ion-buttons slot="start">
+            <ion-menu-button menu="main-menu"></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="negritas-menu" slot="end" style="color: white !important">
+            Saldo: {{sharedDataService.userData.Creditos}}
+            <ion-icon name="cart"></ion-icon>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" class="content-background">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <swiper-container (slidechange)="swiperSlideChanged($event)" [loop]="true" [pagination]="true" [autoplay]="{
+            delay: 2500,
+            disableOnInteraction: false }">
+        <swiper-slide *ngFor="let imageUrl of sharedDataService.FlyerList">
+            <img src="{{imageUrl.flyer}}" alt="Imagen" />
+        </swiper-slide>
+    </swiper-container>
+
+    <div class="contenedor-cabecera">
+        <h1 class="Blanquitas">¿Qué te gustaría ver hoy?</h1>
+    </div>
+
+    <div class="contenedor-cabecera">
+        <h1 class="color-blue">Servicios</h1>
+    </div>
+
+    <app-card-menu></app-card-menu>
+    <br />
+
+    <div class="fixed-tab-bar">
+        <app-tabs></app-tabs>
+    </div>
+</ion-content>

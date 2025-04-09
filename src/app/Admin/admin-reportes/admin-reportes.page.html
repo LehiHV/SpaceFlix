@@ -1,0 +1,43 @@
+<div class="pagina-completa">
+    <ion-header>
+        <ion-toolbar class="barra-estilos">
+            <ion-title class="tituloreportesadmin">Reportes Admin</ion-title>
+            <ion-buttons slot="start" class="toolbar-button">
+                <ion-back-button defaultHref="/"></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+
+    
+    <ion-content class="content-background">
+        <ion-searchbar class="rounded-searchbar" [(ngModel)]="filtroCorreo "></ion-searchbar>
+        <ion-list class="contenedor-form">
+            <ion-item *ngFor="let report of sharedDataServices.filterEmail2(sharedDataServices.ReportAdminList, filtroCorreo) " (click)="verInfo(report) ">
+
+                <ion-avatar slot="start">
+                    <img src="{{report.Foto}}" alt="foto de perfil " />
+                </ion-avatar>
+                <ion-label class="list-content">
+                    <h2>{{ report.Correo }}</h2>
+                </ion-label>
+                <ion-label class="list-content">
+                    <h3>{{ report.Usuario }}</h3>
+                </ion-label>
+                <ion-icon slot="end" [name]="obtenerIcono(report.Status) " [color]="obtenerColor(report.Status) "></ion-icon>
+
+            </ion-item>
+        </ion-list>
+        <div class="pagination">
+            <div class="scroll-container">
+              <span
+                *ngFor="let pagina of paginas"
+                (click)="navigateToPage(pagina)"
+                class="page-number"
+              >
+                {{ pagina }}
+              </span>
+            </div>
+          </div>
+    </ion-content>
+</div>

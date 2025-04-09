@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: black">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        style="--color: #e5e5e5"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end" class="sub-text">Movimientos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+  <div class="contenedor-card">
+    <ion-searchbar
+      placeholder="Buscar"
+      [(ngModel)]="searchText"
+      style="
+        --border-radius: 5rem;
+        --background: #7f668f;
+        --color: white;
+        --placeholder-color: white;
+        --icon-color: white;
+      "
+    >
+    </ion-searchbar>
+
+    <!-- ion-list con ítems e imágenes -->
+    <ion-list>
+      <ion-item *ngFor="let accion of sharedDataServices.filterMovs(this.sub_admin.acciones,this.searchText)" (click)="vermovimiento(this.sub_admin,this.accion)">
+        <ion-avatar slot="start">
+          <img [src]="getImagenURL(accion.Seccion)" />
+        </ion-avatar>
+        <ion-label>{{ "El Sub Admin: " + sub_admin.Usuario + " realizo: " + accion.Seccion }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="contenedor-card"></div>
+</ion-content>

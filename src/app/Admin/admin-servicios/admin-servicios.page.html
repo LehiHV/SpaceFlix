@@ -1,0 +1,72 @@
+<div class="pagina-completa">
+  <ion-header>
+    <ion-toolbar class="toolbar-title">
+      <ion-buttons slot="start">
+        <ion-back-button
+          defaultHref="/"
+          style="--color: #e5e5e5"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-title slot="end" class="sub-text">Servicios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="content-background">
+    <div class="contenedor-form">
+      <ion-searchbar
+        class="rounded-searchbar"
+        placeholder="Buscar servicio"
+        [(ngModel)]="filtroServicio"
+      ></ion-searchbar>
+    </div>
+
+    <div *ngFor="let category of sharedDataServices.filterService(sharedDataServices.categoriesThreshold,filtroServicio?? '')">
+      <p class="title-bold">{{ category[0] }}</p>
+      <ion-card
+        class="custom-card-2"
+        *ngFor="let service of category[1]"
+      >
+        <ion-card-content>
+          <div class="imagen-izquierda">
+            <img
+              class="product-image"
+              src="{{service.Foto}}"
+              alt="Product Image"
+            />
+          </div>
+
+          <div class="texto-derecho">
+            <p class="plan-name">{{service.Nombre}}</p>
+            <p class="plan-description">{{service.Descripcion}}</p>
+            <p class="plan-all">
+              Precio costo:
+              <ion-label class="plan-all-color">{{service.Costo}}</ion-label>
+            </p>
+            <p class="plan-all">Precio clientes:</p>
+            <p class="plan-all-color">{{service.Precio}}</p>
+            <p class="plan-all">Precio VIP:</p>
+            <p class="plan-all-color">{{service.Precio_VIP}}</p>
+            <p class="plan-all">Tipo de Cuenta:</p>
+            <p class="plan-all-color">{{service.Tipo_de_Cuenta}}</p>
+            <div class="button-container">
+              <ion-button class="blue" (click)="irEditarServicio(service)"
+              >Editar</ion-button
+              >
+            </div>
+            <div class="button-container-2">
+              <ion-button class="red" (click)="eliminarServicio(service)"
+              >Borrar</ion-button
+              >
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-button class="category-button" (click)="irNuevaCategoria()">
+      <ion-icon name="pricetags-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="add-button" (click)="irNuevoServicio()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-content>
+</div>

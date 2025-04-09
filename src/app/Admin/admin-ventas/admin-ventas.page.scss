@@ -1,0 +1,97 @@
+/* Estilos comunes para elementos que tienen fondo transparente y texto blanco */
+.transparency-and-white-text {
+  --background: transparent;
+  color: #fff;
+}
+
+.pagina-completa {
+  background-image: url('/assets/backgroundimgadmin.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+.content-background, .barra-estilos, .toolbar-button, .toolbar-title {
+  --background: transparent;
+  color: #fff;
+
+}
+
+.image-propiedades, .custom-label, .custom-note {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.8em; /* Ajusta según la necesidad, pero mantiene la consistencia entre .custom-label y .custom-note */
+  font-weight: bold;
+}
+
+.custom-note {
+  color: #A0DF82; /* Este color se aplicará a todo el texto excepto al símbolo de pesos */
+}
+
+.currency-symbol {
+  color: #000000; /* Este color se aplicará solo al símbolo de pesos */
+}
+
+
+.item-content {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Consolidación de estilos para ion-list y ion-item */
+ion-list, ion-item {
+  --background: transparent;
+  --ion-item-background: transparent;
+  color: #fff;
+}
+.sub-text{
+  color: #E5E5E5;
+}
+ion-title {
+  text-align: right;
+}
+/* Elimina los paddings específicos y utiliza flexbox para centrar */
+ion-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+}
+
+/* Asegúrate de que ion-card-title y ion-card-subtitle estén centrados sin padding específico */
+.ion-card-title, .fecha {
+  font-size: 1.6em; /* Tamaño de fuente para ion-card-title */
+  width: 100%; /* Opcional: asegura que toma el ancho completo del contenedor para centrar el texto correctamente */
+  color: white;
+  font-weight: light;
+}
+/* No necesitas una clase separada para gananciastotales si solo centra el texto, ion-card-header se encargará de ello */
+.ion-card-title, .precio{
+  font-size: 2em;
+  color: #A0DF82;
+  font-weight: bold;
+}
+
+.user{
+  display: inline-flex; /* Cambio a inline-flex para ajustarse al contenido */
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  color: white; /* Color del texto */
+  background-color: black; /* Color de fondo del recuadro */
+  border: 2px solid white; /* Contorno blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espacio interior para que el texto no esté justo en el borde */
+  margin: 10px; /* Margen exterior para separarlo de otros elementos si es necesario */
+}
+
+
+.gananciastotales{
+  color: white;
+  font-weight: bold;
+
+}

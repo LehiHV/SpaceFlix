@@ -1,0 +1,203 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content class="Content-Background" [fullscreen]="true">
+  <ion-img
+    src="assets/spaceflix_logo.svg"
+    class="Logo"
+    alt="Logo Spaceent"
+  ></ion-img>
+
+  <!-- Switch entre Login y Registro, ahora está fuera de las vistas condicionales -->
+
+  <!-- Vista de Login -->
+  <ion-card *ngIf="isLoginView" class="card-login">
+    <ion-card-content>
+      <ion-segment
+        [value]="isLoginView ? 'true' : 'false'"
+        (ionChange)="segmentChanged($event)"
+      >
+        <ion-segment-button
+          value="true"
+          onclick="leftclick()"
+          [class.selected]="isLoginView"
+        >
+          <ion-label>Iniciar</ion-label>
+        </ion-segment-button>
+        <ion-segment-button
+          value="false"
+          onclick="rightclick()"
+          [class.selected]="!isLoginView"
+        >
+          <ion-label>Registro</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div *ngIf="CNV" class="text-center">
+        <ion-label position="floating" class="text-red" >Verificacion captcha incorrecta </ion-label>
+      </div>
+      <ion-item class="item-interactive">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="usuario1" maxlength="256"></ion-input>
+      </ion-item>
+      <ion-item class="item-interactive">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="contrasena1"
+          id="contrasenaInput"
+          maxlength="8"
+        ></ion-input>
+        <ion-icon
+          slot="end"
+          name="eye"
+          (click)="togglePasswordVisibility()"
+        ></ion-icon>
+      </ion-item>
+      <ion-item>
+      <re-captcha (resolved)="onCaptchaResolved($event)"  siteKey="6LeNHy4qAAAAAFNFxigiFust1FhwqrFxMFNdWR1K"></re-captcha>
+      </ion-item>
+      <ion-item>
+        <ion-label>Recordar datos</ion-label>
+        <ion-toggle
+          [(ngModel)]="recordarDatos"
+          (ionChange)="saveToggleState()"
+        ></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <br />
+
+  <!-- Vista de Registro -->
+  <ion-card *ngIf="!isLoginView" class="card-register">
+    <ion-card-content>
+      <ion-segment
+        [value]="isLoginView ? 'true' : 'false'"
+        (ionChange)="segmentChanged($event)"
+      >
+        <ion-segment-button
+          value="true"
+          onclick="leftclick()"
+          [class.selected]="isLoginView"
+        >
+          <ion-label>Iniciar</ion-label>
+        </ion-segment-button>
+        <ion-segment-button
+          value="false"
+          onclick="rightclick()"
+          [class.selected]="!isLoginView"
+        >
+          <ion-label>Registro</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <div *ngIf="CNV" class="text-center">
+        <ion-label position="floating" class="text-red" >Verificacion captcha incorrecta </ion-label>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Usuario:</ion-label>
+        <ion-input [(ngModel)]="usuario" maxlength="256"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo:</ion-label>
+        <ion-input
+          type="email"
+          [(ngModel)]="correo"
+          maxlength="256"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña:</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="contrasena"
+          id="contrasenaInput"
+          maxlength="8"
+        ></ion-input>
+        <ion-icon
+          slot="end"
+          name="eye"
+          (click)="togglePasswordVisibility()"
+        ></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nombre:</ion-label>
+        <ion-input [(ngModel)]="nombre_cliente" maxlength="256"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          maxlength="256"
+          label="Código de invitación:"
+          type="text"
+          [(ngModel)]="ref"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Seleccionar código país</ion-label>
+        <ion-select
+          [(ngModel)]="seleccion"
+          placeholder="Seleccionar código país"
+          (click)="sharedDataService.cargarLadas()"
+        >
+          <ion-select-option
+            *ngFor="let pais of sharedDataService.codigoPais"
+            [value]="pais.codigoLada"
+          >
+            {{ pais.nombre }} : {{ pais.codigoLada }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          [(ngModel)]="telefono"
+          maxlength="10"
+          label="Número:"
+          placeholder="Número de teléfono"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <re-captcha (resolved)="onCaptchaResolved($event)"  siteKey="6LeNHy4qAAAAAFNFxigiFust1FhwqrFxMFNdWR1K"></re-captcha>
+        </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <!-- Vista de Registro sección final -->
+
+  <div class="contenedor-blanco">
+    <ion-label class="text-white">¿Olvidaste tu contraseña? </ion-label>
+    <ion-label class="text-blue-underline" (click)="contrasenaWhatsapp()"
+      >Recupérala</ion-label
+    >
+  </div>
+
+  <!-- Botón de acción según la vista -->
+  <div class="button-container">
+    <ion-button
+      class="centered-button"
+      (click)="isLoginView ? LoginAccess() : RegisterAccess()"
+      [disabled]="isLoading"
+    >
+      <ion-spinner *ngIf="isLoading"></ion-spinner>
+      {{ !isLoading ? (isLoginView ? 'Iniciar sesión' : 'Registrarse') : '' }}
+    </ion-button>
+  </div>
+
+  <br />
+  <br />
+  <div class="contenedor-blanco-2">
+    <ion-label class="text-blue-underline" (click)="irPolitica()"
+      >Politica de privacidad</ion-label
+    >
+  </div>
+
+  <!-- Contenedor de toda la pantalla -->
+  <div class="contenedor-pantalla" *ngIf="mostrarActualizacion">
+    <ion-card class="card-confirmacion">
+      <ion-card-header>
+        <ion-card-title class="tittle-confirmacion">¡La nueva actualización ya esta aqui!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+       <p class="texto-confirmacion">Actualiza Spaceflix a la última versión disponible para disfrutar de todas las novedades</p>
+      </ion-card-content>
+      <ion-button shape="round" class="morado-confirmacion" (click)="irActualizacion()">Actualizar</ion-button>
+    </ion-card>
+    </div>
+
+</ion-content>

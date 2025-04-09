@@ -1,0 +1,240 @@
+.custom-card {
+  margin: 10px; /* Añadimos un margen entre las tarjetas */
+  --background: #422D4B;
+  border-radius: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+/* Media query para dispositivos con un ancho máximo de 768px (típicamente dispositivos móviles) */
+@media screen and (max-width: 768px) {
+  .custom-card {
+    width: calc(50% - 20px); /* Establecemos el ancho de las tarjetas al 50% del contenedor con un espacio de 20px entre ellas */
+  }
+}
+
+/* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+@media screen and (min-width: 769px) {
+  .custom-card {
+    width: calc(16.66% - 20px); /* Establecemos el ancho de las tarjetas al 20% del contenedor con un espacio de 20px entre ellas */
+  }
+}
+
+  .rounded-searchbar {
+    --border-radius: 2.5em;
+    --background: #7d6985;
+    color: #cccccc;
+    width: 18em;
+    font-size: 1.25em;
+    margin-left: auto;
+    /* Centra el elemento horizontalmente */
+    margin-right: auto;
+    /* Centra el elemento horizontalmente */
+    --icon-color: #cccccc;
+    /* Cambia el color del icono */
+    --icon-font-size: 1.25em;
+    /* Cambia el tamaño del icono */
+    margin-bottom: 2%;
+  }
+  .plan-name {
+    font-size: 1.4375em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .plan-Description {
+    font-size: 1.375em;
+    font-weight: bold;
+    color: #CCCCCC;
+}
+
+  .plan-price {
+    font-size: 1.4em;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #BFC6FF, #BFC6FF);
+    -webkit-background-clip: text; /* Aplica el degradado solo al texto */
+    color: transparent; /* Hace que el texto sea transparente */
+  }
+
+  .plan-price-confirmacion {
+    font-size: 1.8em;
+    font-weight: 800;
+    color:#BFC6FF ;
+  }
+
+  .contendor-card {
+    display: flex; /* Utilizamos flexbox */
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .contenedor-pantalla {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105%; /* Ajusta el ancho del contenedor según sea necesario */
+    max-height: 85%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.358);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999;
+}
+
+/* Estilo de la segunda card */
+.card-confirmacion {
+  width: 90%; /* Ancho deseado */
+  max-width: 400px; /* Ancho máximo */
+  height: auto; /* Altura automática */
+  background-color: #434343; /* Color de fondo */
+  border-radius: 25px;
+  text-align: center;
+  color: black;
+  padding-bottom: 10px;
+  margin: auto; /* Añade margen automático para centrar horizontalmente */
+}
+.card-confirmacion-ticket {
+  width: 90%; /* Ancho deseado */
+  max-width: 400px; /* Ancho máximo */
+  height: auto; /* Altura automática */
+  background-color: #434343; /* Color de fondo */
+  border-radius: 25px;
+  color: black;
+  padding-bottom: 10px;
+  margin: auto; /* Añade margen automático para centrar horizontalmente */
+}
+
+.morado{
+--background: #72A0C3;
+}
+.morado-confirmacion{
+  --background: #D473EC;
+  }
+.cancelar-button{
+  --background: #777777 ;
+}
+
+.title-bold{
+  font-size: 1.625em;
+  font-weight: bold;
+  color: white;
+  padding-left: 10%;
+  text-align: left;
+  text-align: center;
+}
+.title-bold-2{
+  font-size: 1.25em;
+  color:  white;
+  text-align: center;
+  font-weight: 600;
+}
+.title-bold-category{
+  font-size: 1.564em;
+  font-weight: bold;
+  color: white;
+  padding-left: 10%;
+  text-align: left;
+}
+
+.cantidad-disponible{
+  font-size: 1.25em;
+  color: white;
+}
+.cantidad-disponible-color{
+  font-size: 1em;
+  font-weight: 600;
+  color: #BFC6FF;
+}
+
+.terminos {
+font-size: 1.1em;
+color: #CCCCCC;
+}
+.card-img-confirmacion {
+  width: 25%; /* Define el ancho deseado */
+  margin: 8% auto 0; /* Mantiene un margen superior del 5% y centra horizontalmente */
+
+}
+
+.tittle-confirmacion{
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+}
+.texto-confirmacion{
+ font-size:  1.2em;
+ color: #CCCCCC;
+}
+.texto-confirmacion-bold{
+  font-size:  0.85em;
+  color: #CCCCCC;
+  font-weight: bold;
+ }
+.texto-ticket{
+  font-size:  1.4em;
+ }
+ .texto-confirmacion-terminos{
+  font-size:  1.15em;
+  color: #CCCCCC;
+ }
+ .texto-ticket-terminos{
+  font-size:  1.10em;
+  color: #CCCCCC;
+ }
+ ion-icon{
+  color: #BFC6FF;
+ }
+ .menu-segment {
+  --background: transparent;
+  --indicator-color: #76add7;
+  --color-checked: #76add7;
+  --color: #76add7;
+  --padding-top: 0.75em;
+  --padding-bottom: 0.75em;
+  --border-radius: 10.625em;
+  margin: 1em;
+  position: relative;
+  /* Asegura que el pseudo-elemento esté posicionado correctamente */
+  font-size: 1.1em;
+}
+.color-blue {
+  color: #76add7;
+  font-size: 1.1em;
+}
+.warningImg{
+  width: 33%;
+  height: 100%;
+  display: block;
+  margin: 0 auto; /* Esto centra horizontalmente la imagen */
+  margin-top: 5%;
+}
+.ticketFinalIg{
+  width: 90%;
+  height: 100%;
+  display: block;
+  margin: 0 auto; /* Esto centra horizontalmente la imagen */
+}
+  /* Media query para dispositivos con un ancho mínimo de 769px (típicamente computadoras de escritorio) */
+  @media screen and (min-width: 769px) {
+    .contenedor-pantalla {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%; /* Ancho del contenedor ajustado */
+      max-width: 800px; /* Ancho máximo del contenedor para evitar que sea demasiado ancho */
+      max-height: 90%; /* Altura máxima ajustada */
+      overflow: auto;
+      padding: 30px; /* Margen aumentado */
+      border-radius: 15px;
+      z-index: 9999;
+      color: white; /* Color de texto ajustado para mejorar la legibilidad */
+  }
+  .ticketFinalIg{
+    width: 70%;
+  }
+  }

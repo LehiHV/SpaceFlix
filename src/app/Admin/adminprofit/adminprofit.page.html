@@ -1,0 +1,58 @@
+<div class="pagina-completa">
+    <ion-header>
+        <ion-toolbar class="toolbar-title">
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="/home-admin" style="--color: #e5e5e5"></ion-back-button>
+            </ion-buttons>
+            <ion-title slot="end" class="sub-text">Ventas</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="content-background">
+        <ion-card-header>
+            <!-- Spinner de selección de tiempo -->
+            <ion-item>
+                <ion-label class="spinnerdate"> Durante: </ion-label>
+                <ion-select class="spinnerdate" [(ngModel)]="selectedPeriod" (ionChange)="onPeriodChange()">
+                    <ion-select-option value="1"> 1 mes</ion-select-option>
+                    <ion-select-option value="2"> 2 meses</ion-select-option>
+                    <ion-select-option value="3"> 3 meses</ion-select-option>
+                    <ion-select-option value="4"> 4 meses</ion-select-option>
+                    <ion-select-option value="6"> 6 meses</ion-select-option>
+                    <ion-select-option value="12"> 12 meses</ion-select-option>
+                    <ion-select-option value="all"> Desde el inicio</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-card-title class="gananciastotales">Ganancias totales: {{sharedDataServices.Profits != undefined ? sharedDataServices.Profits.Suma_Total : null}}</ion-card-title>
+            <ion-card-subtitle class="fecha">{{ getFormattedDate() }}</ion-card-subtitle>
+            <ion-card-title class="precio"><span class="currency-symbol">$</span> {{sharedDataServices.Profits != undefined ? sharedDataServices.Profits.Suma_Total : null}}
+            </ion-card-title>
+        </ion-card-header>
+
+        <!-- HTML -->
+        <div class="container">
+            <p class="prueba">
+                {{sharedDataServices.Profits != undefined ? sharedDataServices.Profits.usuarios : null}} USUARIOS
+            </p>
+        </div>
+
+        <ion-list class="gn">
+            <ion-item lines="none">
+                <div class="item-content">
+                    <ion-label class="custom-label">Ganancias totales de plan familia:</ion-label>
+                    <ion-note class="custom-note"><span class="currency-symbol">$</span> {{sharedDataServices.Profits != undefined ? sharedDataServices.Profits.Suma_Cuenta_Completa : null}}
+                    </ion-note>
+                </div>
+            </ion-item>
+            <!-- Repite para cada tipo de plan, ajustando el contenido según sea necesario -->
+            <ion-item lines="none">
+                <div class="item-content">
+                    <ion-label class="custom-label">Ganancias totales de plan individual:</ion-label>
+                    <ion-note class="custom-note"><span class="currency-symbol">$</span> {{sharedDataServices.Profits != undefined ? sharedDataServices.Profits.Suma_Cuenta_Individual : null}}
+                    </ion-note>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</div>

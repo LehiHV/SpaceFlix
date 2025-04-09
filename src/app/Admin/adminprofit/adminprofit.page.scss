@@ -1,0 +1,154 @@
+.pagina-completa {
+  background-image: url("/assets/adminbackgroundnew.svg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Aplica la clase .transparency-and-white-text a .content-background, .barra-estilos, .toolbar-button, y .toolbar-title */
+
+.content-background,
+.barra-estilos,
+.toolbar-button,
+.toolbar-title {
+  --background: transparent;
+  color: #fff;
+  font-size: 1.25em;
+}
+@media (min-width: 1200px) {
+  .sub-text {
+    font-size: 1.8rem !important; /* Aumenta el tamaño del texto para mejor legibilidad */
+  }
+  .gn {
+    margin-left: 30%;
+  }
+  .custom-label {
+    font-size: 2.3rem !important;
+  }
+  .gananciastotales {
+    font-size: 2.3rem !important;
+  }
+  .container {
+    font-size: 1.2rem !important;
+  }
+  .spinnerdate {
+    font-size: 1.8rem !important;
+  }
+}
+
+.spinnerdate {
+  font-size: 1.5em;
+}
+
+.ventastitle {
+  padding-left: 10em;
+  font-size: 1.25em;
+}
+
+.image-propiedades,
+.custom-label {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.2em;
+  /* Ajusta según la necesidad, pero mantiene la consistencia entre .custom-label y .custom-note */
+  font-weight: bold;
+}
+
+.custom-note {
+  color: #a0df82;
+  /* Este color se aplicará a todo el texto excepto al símbolo de pesos */
+  display: block;
+  margin: 0 auto;
+  font-size: 1.8em;
+  /* Ajusta según la necesidad, pero mantiene la consistencia entre .custom-label y .custom-note */
+  font-weight: bold;
+}
+
+.currency-symbol {
+  color: #cccccc;
+  /* Este color se aplicará solo al símbolo de pesos */
+}
+
+.item-content {
+  padding-top: 2em;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Consolidación de estilos para ion-list y ion-item */
+
+ion-list,
+ion-item {
+  --background: transparent;
+  --ion-item-background: transparent;
+  color: #ffffff;
+}
+ion-title {
+  text-align: right;
+}
+
+/* Elimina los paddings específicos y utiliza flexbox para centrar */
+
+ion-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Asegúrate de que ion-card-title y ion-card-subtitle estén centrados sin padding específico */
+
+.ion-card-title,
+.fecha {
+  font-size: 1.6em;
+  /* Tamaño de fuente para ion-card-title */
+  width: 100%;
+  /* Opcional: asegura que toma el ancho completo del contenedor para centrar el texto correctamente */
+  color: white;
+  font-weight: light;
+}
+
+/* No necesitas una clase separada para gananciastotales si solo centra el texto, ion-card-header se encargará de ello */
+
+.ion-card-title,
+.precio {
+  font-size: 2em;
+  color: #a0df82;
+  font-weight: bold;
+}
+
+.gananciastotales {
+  color: white;
+  font-weight: bold;
+}
+
+/* CSS */
+
+.container {
+  display: flex;
+  /* Utiliza flexbox para el diseño */
+  justify-content: center;
+  /* Centra horizontalmente */
+  align-items: center;
+  /* Centra verticalmente */
+  margin-top: -6px;
+  /* Ajusta el margen superior según sea necesario */
+}
+
+.prueba {
+  text-align: center;
+  /* Centra el texto horizontalmente */
+  color: white;
+  /* Color del texto */
+  padding: 12px;
+  /* Añade espacio alrededor del texto */
+  border: 2px solid #ffffff;
+  /* Establece un borde negro */
+  border-radius: 25px;
+  /* Añade bordes redondeados */
+  background-color: black;
+  /* Color de fondo del recuadro */
+  font-size: 1.1em;
+}
