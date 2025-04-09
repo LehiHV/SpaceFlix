@@ -1,0 +1,8 @@
+{
+  "name": "Space_Flix",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
